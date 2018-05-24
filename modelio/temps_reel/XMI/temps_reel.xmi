@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_ug79wE92EeiLc_mHq1tF1Q" name="temps_reel">
+  <eAnnotations xmi:id="_ug8k0E92EeiLc_mHq1tF1Q" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_ug8k0U92EeiLc_mHq1tF1Q" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_ug8k0k92EeiLc_mHq1tF1Q" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_ug8k0092EeiLc_mHq1tF1Q" name="Fonctionnalité 1 : Lancement de NodeJS et Mise en Attente de Connexion">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_ug8k1E92EeiLc_mHq1tF1Q" name="locals"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug8k1U92EeiLc_mHq1tF1Q" name="Lancement nodejs" outgoing="_ug8k3U92EeiLc_mHq1tF1Q" incoming="_ug8k3092EeiLc_mHq1tF1Q">
+      <body>run_nodejs
+</body>
+    </node>
+    <node xmi:type="uml:InitialNode" xmi:id="_ug8k1k92EeiLc_mHq1tF1Q" name="Initial Node" outgoing="_ug8k3092EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug8k1092EeiLc_mHq1tF1Q" name="Connexion via socket" outgoing="_ug8k4U92EeiLc_mHq1tF1Q" incoming="_ug8k3U92EeiLc_mHq1tF1Q">
+      <body>open_server
+</body>
+    </node>
+    <node xmi:type="uml:DecisionNode" xmi:id="_ug8k2E92EeiLc_mHq1tF1Q" name="Decision-Merge" outgoing="_ug8k4092EeiLc_mHq1tF1Q _ug8k5k92EeiLc_mHq1tF1Q" incoming="_ug8k4U92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug8k2U92EeiLc_mHq1tF1Q" name="Message d'erreur sur console" outgoing="_ug8k6U92EeiLc_mHq1tF1Q" incoming="_ug8k4092EeiLc_mHq1tF1Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug8k2k92EeiLc_mHq1tF1Q" name="Arrêt superviseur" outgoing="_ug8k6092EeiLc_mHq1tF1Q" incoming="_ug8k6U92EeiLc_mHq1tF1Q _ug8k7U92EeiLc_mHq1tF1Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_ug8k2092EeiLc_mHq1tF1Q" name="Activity Final Node" incoming="_ug8k6092EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug8k3E92EeiLc_mHq1tF1Q" name="Affichage de la page d'accueil sur moniteur" outgoing="_ug8k7U92EeiLc_mHq1tF1Q" incoming="_ug8k5k92EeiLc_mHq1tF1Q">
+      <body></body>
+    </node>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug8k3U92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug8k1U92EeiLc_mHq1tF1Q" target="_ug8k1092EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug8k3k92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug8k3092EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug8k1k92EeiLc_mHq1tF1Q" target="_ug8k1U92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug8k4E92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug8k4U92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug8k1092EeiLc_mHq1tF1Q" target="_ug8k2E92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug8k4k92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug8k4092EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug8k2E92EeiLc_mHq1tF1Q" target="_ug8k2U92EeiLc_mHq1tF1Q">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_ug8k5E92EeiLc_mHq1tF1Q">
+        <body>Echec de connexion</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug8k5U92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug8k5k92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug8k2E92EeiLc_mHq1tF1Q" target="_ug8k3E92EeiLc_mHq1tF1Q">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_ug8k5092EeiLc_mHq1tF1Q">
+        <body>Connexion réussie</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug8k6E92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug8k6U92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug8k2U92EeiLc_mHq1tF1Q" target="_ug8k2k92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug8k6k92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug8k6092EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug8k2k92EeiLc_mHq1tF1Q" target="_ug8k2092EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug8k7E92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug8k7U92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug8k3E92EeiLc_mHq1tF1Q" target="_ug8k2k92EeiLc_mHq1tF1Q">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_ug8k7k92EeiLc_mHq1tF1Q">
+        <body>Demande d'arrêt</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug8k7092EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_ug8k8E92EeiLc_mHq1tF1Q" name="Fonctionnalité 2 : Etablissement du Socket">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_ug8k8U92EeiLc_mHq1tF1Q" name="locals"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_ug8k8k92EeiLc_mHq1tF1Q" name="Initial Node" outgoing="_ug8k_E92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:ForkNode" xmi:id="_ug8k8092EeiLc_mHq1tF1Q" name="Fork/Join" outgoing="_ug8k_092EeiLc_mHq1tF1Q _ug8lAU92EeiLc_mHq1tF1Q" incoming="_ug8k_E92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug8k9E92EeiLc_mHq1tF1Q" name="Création socket supervisor" outgoing="_ug8lA092EeiLc_mHq1tF1Q" incoming="_ug8lAU92EeiLc_mHq1tF1Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug8k9U92EeiLc_mHq1tF1Q" name="Connexion superviseur en attente" outgoing="_ug8lBU92EeiLc_mHq1tF1Q" incoming="_ug8lA092EeiLc_mHq1tF1Q">
+      <body>open_server
+</body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug8k9k92EeiLc_mHq1tF1Q" name="Demande de connexion de nodejs" outgoing="_ug8lB092EeiLc_mHq1tF1Q" incoming="_ug8k_092EeiLc_mHq1tF1Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:JoinNode" xmi:id="_ug8k9092EeiLc_mHq1tF1Q" name="Fork/Join1" outgoing="_ug8lCU92EeiLc_mHq1tF1Q" incoming="_ug8lBU92EeiLc_mHq1tF1Q _ug8lB092EeiLc_mHq1tF1Q">
+      <joinSpec xmi:type="uml:LiteralString" xmi:id="_ug8k-E92EeiLc_mHq1tF1Q" value="and"/>
+    </node>
+    <node xmi:type="uml:DecisionNode" xmi:id="_ug8k-U92EeiLc_mHq1tF1Q" name="Decision-Merge" outgoing="_ug8lC092EeiLc_mHq1tF1Q _ug8lDk92EeiLc_mHq1tF1Q" incoming="_ug8lCU92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_ug8k-k92EeiLc_mHq1tF1Q" name="Activity Final Node" incoming="_ug8lC092EeiLc_mHq1tF1Q _ug8lEU92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug8k-092EeiLc_mHq1tF1Q" name="Afficher message &quot;connecté&quot; sur le moniteur" outgoing="_ug8lEU92EeiLc_mHq1tF1Q" incoming="_ug8lDk92EeiLc_mHq1tF1Q">
+      <body></body>
+    </node>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug8k_E92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug8k8k92EeiLc_mHq1tF1Q" target="_ug8k8092EeiLc_mHq1tF1Q">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_ug8k_U92EeiLc_mHq1tF1Q">
+        <body>Demande connexion moniteur</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug8k_k92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug8k_092EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug8k8092EeiLc_mHq1tF1Q" target="_ug8k9k92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug8lAE92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug8lAU92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug8k8092EeiLc_mHq1tF1Q" target="_ug8k9E92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug8lAk92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug8lA092EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug8k9E92EeiLc_mHq1tF1Q" target="_ug8k9U92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug8lBE92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug8lBU92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug8k9U92EeiLc_mHq1tF1Q" target="_ug8k9092EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug8lBk92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug8lB092EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug8k9k92EeiLc_mHq1tF1Q" target="_ug8k9092EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug8lCE92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug8lCU92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug8k9092EeiLc_mHq1tF1Q" target="_ug8k-U92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug8lCk92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug8lC092EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug8k-U92EeiLc_mHq1tF1Q" target="_ug8k-k92EeiLc_mHq1tF1Q">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_ug8lDE92EeiLc_mHq1tF1Q">
+        <body>Echec de connexion</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug8lDU92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug8lDk92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug8k-U92EeiLc_mHq1tF1Q" target="_ug8k-092EeiLc_mHq1tF1Q">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_ug8lD092EeiLc_mHq1tF1Q">
+        <body>Connexion réussie</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug8lEE92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug8lEU92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug8k-092EeiLc_mHq1tF1Q" target="_ug8k-k92EeiLc_mHq1tF1Q">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_ug8lEk92EeiLc_mHq1tF1Q">
+        <body>Déconnexion</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug8lE092EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_ug8lFE92EeiLc_mHq1tF1Q" name="Fonctionnalité 3 : Réception des Messages">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_ug8lFU92EeiLc_mHq1tF1Q" name="locals"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_ug8lFk92EeiLc_mHq1tF1Q" name="Initial Node" outgoing="_ug9L5092EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:LoopNode" xmi:id="_ug9L4E92EeiLc_mHq1tF1Q" name="Attente message" outgoing="_ug9L6U92EeiLc_mHq1tF1Q" incoming="_ug9L5092EeiLc_mHq1tF1Q _ug9L7U92EeiLc_mHq1tF1Q" setupPart="_ug9L4U92EeiLc_mHq1tF1Q" test="_ug9L4092EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:ValueSpecificationAction" xmi:id="_ug9L4U92EeiLc_mHq1tF1Q" name="receive_message_from_monitor">
+      <value xmi:type="uml:LiteralString" xmi:id="_ug9L4k92EeiLc_mHq1tF1Q" value="receive_message_from_monitor"/>
+    </node>
+    <node xmi:type="uml:ValueSpecificationAction" xmi:id="_ug9L4092EeiLc_mHq1tF1Q" name="Message reçu">
+      <value xmi:type="uml:LiteralString" xmi:id="_ug9L5E92EeiLc_mHq1tF1Q" value="Message reçu"/>
+    </node>
+    <node xmi:type="uml:ConditionalNode" xmi:id="_ug9L5U92EeiLc_mHq1tF1Q" name="Message envoyé par le serveur" outgoing="_ug9L6092EeiLc_mHq1tF1Q" incoming="_ug9L6U92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug9L5k92EeiLc_mHq1tF1Q" name="Réception message par le superviseur" outgoing="_ug9L7U92EeiLc_mHq1tF1Q" incoming="_ug9L6092EeiLc_mHq1tF1Q">
+      <body></body>
+    </node>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9L5092EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug8lFk92EeiLc_mHq1tF1Q" target="_ug9L4E92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9L6E92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9L6U92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9L4E92EeiLc_mHq1tF1Q" target="_ug9L5U92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9L6k92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9L6092EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9L5U92EeiLc_mHq1tF1Q" target="_ug9L5k92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9L7E92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9L7U92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9L5k92EeiLc_mHq1tF1Q" target="_ug9L4E92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9L7k92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_ug9L7092EeiLc_mHq1tF1Q" name="Fonctionnalité 4 : Envoi des Messages">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_ug9L8E92EeiLc_mHq1tF1Q" name="locals"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_ug9L8U92EeiLc_mHq1tF1Q" name="Initial Node" outgoing="_ug9L9k92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug9L8k92EeiLc_mHq1tF1Q" name="Envoi message du superviseur" outgoing="_ug9L-E92EeiLc_mHq1tF1Q" incoming="_ug9L9k92EeiLc_mHq1tF1Q">
+      <body>send_message_to_monitor</body>
+    </node>
+    <node xmi:type="uml:DecisionNode" xmi:id="_ug9L8092EeiLc_mHq1tF1Q" name="Decision-Merge" outgoing="_ug9L-k92EeiLc_mHq1tF1Q _ug9L_U92EeiLc_mHq1tF1Q" incoming="_ug9L-E92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_ug9L9E92EeiLc_mHq1tF1Q" name="Activity Final Node" incoming="_ug9L-k92EeiLc_mHq1tF1Q _ug9MAE92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug9L9U92EeiLc_mHq1tF1Q" name="Rafraîchissement de la page" outgoing="_ug9MAE92EeiLc_mHq1tF1Q" incoming="_ug9L_U92EeiLc_mHq1tF1Q">
+      <body></body>
+    </node>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9L9k92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9L8U92EeiLc_mHq1tF1Q" target="_ug9L8k92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9L9092EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9L-E92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9L8k92EeiLc_mHq1tF1Q" target="_ug9L8092EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9L-U92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9L-k92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9L8092EeiLc_mHq1tF1Q" target="_ug9L9E92EeiLc_mHq1tF1Q">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_ug9L-092EeiLc_mHq1tF1Q">
+        <body>Délai d'envoi > 10ms</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9L_E92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9L_U92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9L8092EeiLc_mHq1tF1Q" target="_ug9L9U92EeiLc_mHq1tF1Q">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_ug9L_k92EeiLc_mHq1tF1Q">
+        <body>Délai d'envoi =&lt; 10ms</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9L_092EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9MAE92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9L9U92EeiLc_mHq1tF1Q" target="_ug9L9E92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9MAU92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_ug9MAk92EeiLc_mHq1tF1Q" name="Fonctionnalité 5 : Détection de la perte de communication">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_ug9MA092EeiLc_mHq1tF1Q" name="locals"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_ug9MBE92EeiLc_mHq1tF1Q" name="Initial Node" outgoing="_ug9MDU92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:JoinNode" xmi:id="_ug9MBU92EeiLc_mHq1tF1Q" name="Fork/Join" outgoing="_ug9MD092EeiLc_mHq1tF1Q" incoming="_ug9MDU92EeiLc_mHq1tF1Q _ug9MGE92EeiLc_mHq1tF1Q _ug9MHU92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:ForkNode" xmi:id="_ug9MBk92EeiLc_mHq1tF1Q" name="Fork/Join" outgoing="_ug9MEE92EeiLc_mHq1tF1Q _ug9MEk92EeiLc_mHq1tF1Q" incoming="_ug9MD092EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug9MB092EeiLc_mHq1tF1Q" name="Envoi de message" outgoing="_ug9MFE92EeiLc_mHq1tF1Q" incoming="_ug9MEE92EeiLc_mHq1tF1Q">
+      <body>send_message_to_monitor
+</body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug9MCE92EeiLc_mHq1tF1Q" name="Réception de message" outgoing="_ug9MFk92EeiLc_mHq1tF1Q" incoming="_ug9MEk92EeiLc_mHq1tF1Q">
+      <body>receive_message_from_monitor</body>
+    </node>
+    <node xmi:type="uml:DecisionNode" xmi:id="_ug9MCU92EeiLc_mHq1tF1Q" name="Decision-Merge" outgoing="_ug9MGE92EeiLc_mHq1tF1Q _ug9MG092EeiLc_mHq1tF1Q" incoming="_ug9MFE92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:DecisionNode" xmi:id="_ug9MCk92EeiLc_mHq1tF1Q" name="Decision-Merge1" outgoing="_ug9MHU92EeiLc_mHq1tF1Q _ug9MIE92EeiLc_mHq1tF1Q" incoming="_ug9MFk92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug9MC092EeiLc_mHq1tF1Q" name="Message d'erreur sur la console" outgoing="_ug9MIk92EeiLc_mHq1tF1Q" incoming="_ug9MG092EeiLc_mHq1tF1Q _ug9MIE92EeiLc_mHq1tF1Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_ug9MDE92EeiLc_mHq1tF1Q" name="Activity Final Node" incoming="_ug9MIk92EeiLc_mHq1tF1Q"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9MDU92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9MBE92EeiLc_mHq1tF1Q" target="_ug9MBU92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9MDk92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9MD092EeiLc_mHq1tF1Q" source="_ug9MBU92EeiLc_mHq1tF1Q" target="_ug9MBk92EeiLc_mHq1tF1Q"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9MEE92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9MBk92EeiLc_mHq1tF1Q" target="_ug9MB092EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9MEU92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9MEk92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9MBk92EeiLc_mHq1tF1Q" target="_ug9MCE92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9ME092EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9MFE92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9MB092EeiLc_mHq1tF1Q" target="_ug9MCU92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9MFU92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9MFk92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9MCE92EeiLc_mHq1tF1Q" target="_ug9MCk92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9MF092EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9MGE92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9MCU92EeiLc_mHq1tF1Q" target="_ug9MBU92EeiLc_mHq1tF1Q">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_ug9MGU92EeiLc_mHq1tF1Q">
+        <body>Valeur retournée > 0</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9MGk92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9MG092EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9MCU92EeiLc_mHq1tF1Q" target="_ug9MC092EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9MHE92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9MHU92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9MCk92EeiLc_mHq1tF1Q" target="_ug9MBU92EeiLc_mHq1tF1Q">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_ug9MHk92EeiLc_mHq1tF1Q">
+        <body>Valeur retournée > 0</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9MH092EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9MIE92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9MCk92EeiLc_mHq1tF1Q" target="_ug9MC092EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9MIU92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9MIk92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9MC092EeiLc_mHq1tF1Q" target="_ug9MDE92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9MI092EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_ug9MJE92EeiLc_mHq1tF1Q" name="Fonctionnalité 6 : Reprise de la communication">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_ug9MJU92EeiLc_mHq1tF1Q" name="locals"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug9MJk92EeiLc_mHq1tF1Q" name="Fermeture du serveur" outgoing="_ug9MLU92EeiLc_mHq1tF1Q" incoming="_ug9y9U92EeiLc_mHq1tF1Q">
+      <body>close_server</body>
+    </node>
+    <node xmi:type="uml:InitialNode" xmi:id="_ug9MJ092EeiLc_mHq1tF1Q" name="Initial Node" outgoing="_ug9ML092EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:ConditionalNode" xmi:id="_ug9MKE92EeiLc_mHq1tF1Q" name="Requête de fermeture" outgoing="_ug9MMU92EeiLc_mHq1tF1Q" incoming="_ug9ML092EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug9MKU92EeiLc_mHq1tF1Q" name="Arrêt de nodejs" outgoing="_ug9y8U92EeiLc_mHq1tF1Q" incoming="_ug9MMU92EeiLc_mHq1tF1Q">
+      <body>kill nodejs</body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug9MKk92EeiLc_mHq1tF1Q" name="Nettoyage superviseur" outgoing="_ug9y8092EeiLc_mHq1tF1Q" incoming="_ug9MLU92EeiLc_mHq1tF1Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_ug9MK092EeiLc_mHq1tF1Q" name="Activity Final Node" incoming="_ug9y8092EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug9MLE92EeiLc_mHq1tF1Q" name="Stopper le robot" outgoing="_ug9y9U92EeiLc_mHq1tF1Q" incoming="_ug9y8U92EeiLc_mHq1tF1Q">
+      <body></body>
+    </node>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9MLU92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9MJk92EeiLc_mHq1tF1Q" target="_ug9MKk92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9MLk92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9ML092EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9MJ092EeiLc_mHq1tF1Q" target="_ug9MKE92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9MME92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9MMU92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9MKE92EeiLc_mHq1tF1Q" target="_ug9MKU92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9y8E92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9y8U92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9MKU92EeiLc_mHq1tF1Q" target="_ug9MLE92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9y8k92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9y8092EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9MKk92EeiLc_mHq1tF1Q" target="_ug9MK092EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9y9E92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9y9U92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9MLE92EeiLc_mHq1tF1Q" target="_ug9MJk92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9y9k92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_ug9y9092EeiLc_mHq1tF1Q" name="Fonctionnalité 7 : Mettre en Place la Communication avec le Robot">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_ug9y-E92EeiLc_mHq1tF1Q" name="locals"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_ug9y-U92EeiLc_mHq1tF1Q" name="Initial Node" outgoing="_ug9zAE92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug9y-k92EeiLc_mHq1tF1Q" name="Connexion Robot/Superviseur" outgoing="_ug9zAk92EeiLc_mHq1tF1Q" incoming="_ug9zBE92EeiLc_mHq1tF1Q">
+      <body>open_communication_robot
+</body>
+    </node>
+    <node xmi:type="uml:ConditionalNode" xmi:id="_ug9y-092EeiLc_mHq1tF1Q" name="Demande utilisateur via moniteur" outgoing="_ug9zBE92EeiLc_mHq1tF1Q" incoming="_ug9zAE92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug9y_E92EeiLc_mHq1tF1Q" name="Message Communication Active" outgoing="_ug9zBk92EeiLc_mHq1tF1Q" incoming="_ug9zCk92EeiLc_mHq1tF1Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug9y_U92EeiLc_mHq1tF1Q" name=" Message Echec Communication" outgoing="_ug9zCE92EeiLc_mHq1tF1Q" incoming="_ug9zDU92EeiLc_mHq1tF1Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:DecisionNode" xmi:id="_ug9y_k92EeiLc_mHq1tF1Q" name="Decision-Merge" outgoing="_ug9zCk92EeiLc_mHq1tF1Q _ug9zDU92EeiLc_mHq1tF1Q" incoming="_ug9zAk92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_ug9y_092EeiLc_mHq1tF1Q" name="Activity Final Node" incoming="_ug9zBk92EeiLc_mHq1tF1Q _ug9zCE92EeiLc_mHq1tF1Q"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9zAE92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9y-U92EeiLc_mHq1tF1Q" target="_ug9y-092EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9zAU92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9zAk92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9y-k92EeiLc_mHq1tF1Q" target="_ug9y_k92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9zA092EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9zBE92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9y-092EeiLc_mHq1tF1Q" target="_ug9y-k92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9zBU92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9zBk92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9y_E92EeiLc_mHq1tF1Q" target="_ug9y_092EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9zB092EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9zCE92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9y_U92EeiLc_mHq1tF1Q" target="_ug9y_092EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9zCU92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9zCk92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9y_k92EeiLc_mHq1tF1Q" target="_ug9y_E92EeiLc_mHq1tF1Q">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_ug9zC092EeiLc_mHq1tF1Q">
+        <body>Ack</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9zDE92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9zDU92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9y_k92EeiLc_mHq1tF1Q" target="_ug9y_U92EeiLc_mHq1tF1Q">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_ug9zDk92EeiLc_mHq1tF1Q">
+        <body>No Ack</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9zD092EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_ug9zEE92EeiLc_mHq1tF1Q" name="Fonctionnalité 8 : Surveillance communication robot/superviseur">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_ug9zEU92EeiLc_mHq1tF1Q" name="locals"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug9zEk92EeiLc_mHq1tF1Q" name="send_command_to_robot" outgoing="_ug9zGk92EeiLc_mHq1tF1Q" incoming="_ug9zHE92EeiLc_mHq1tF1Q _ug9zKU92EeiLc_mHq1tF1Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:InitialNode" xmi:id="_ug9zE092EeiLc_mHq1tF1Q" name="Initial Node" outgoing="_ug9zHE92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:DecisionNode" xmi:id="_ug9zFE92EeiLc_mHq1tF1Q" name="Decision-Merge" outgoing="_ug9zHk92EeiLc_mHq1tF1Q _ug9zIU92EeiLc_mHq1tF1Q" incoming="_ug9zGk92EeiLc_mHq1tF1Q" decisionInput="_ug9zLk92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug9zFU92EeiLc_mHq1tF1Q" name="Incrémentation compteur" outgoing="_ug9zJE92EeiLc_mHq1tF1Q" incoming="_ug9zHk92EeiLc_mHq1tF1Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug9zFk92EeiLc_mHq1tF1Q" name="Compteur = 0" outgoing="_ug9zJ092EeiLc_mHq1tF1Q" incoming="_ug9zIU92EeiLc_mHq1tF1Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:MergeNode" xmi:id="_ug9zF092EeiLc_mHq1tF1Q" name="Decision-Merge1" outgoing="_ug9zJk92EeiLc_mHq1tF1Q" incoming="_ug9zJE92EeiLc_mHq1tF1Q _ug9zJ092EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:DecisionNode" xmi:id="_ug9zGE92EeiLc_mHq1tF1Q" name="Decision-Merge1" outgoing="_ug9zKU92EeiLc_mHq1tF1Q _ug9zLE92EeiLc_mHq1tF1Q" incoming="_ug9zJk92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_ug9zGU92EeiLc_mHq1tF1Q" name="Activity Final Node" incoming="_ug9zLE92EeiLc_mHq1tF1Q"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9zGk92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9zEk92EeiLc_mHq1tF1Q" target="_ug9zFE92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9zG092EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9zHE92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9zE092EeiLc_mHq1tF1Q" target="_ug9zEk92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9zHU92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9zHk92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9zFE92EeiLc_mHq1tF1Q" target="_ug9zFU92EeiLc_mHq1tF1Q">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_ug9zH092EeiLc_mHq1tF1Q">
+        <body>Erreur communication</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9zIE92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9zIU92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9zFE92EeiLc_mHq1tF1Q" target="_ug9zFk92EeiLc_mHq1tF1Q">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_ug9zIk92EeiLc_mHq1tF1Q">
+        <body>Communication réussie</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9zI092EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9zJE92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9zFU92EeiLc_mHq1tF1Q" target="_ug9zF092EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9zJU92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9zJk92EeiLc_mHq1tF1Q" source="_ug9zF092EeiLc_mHq1tF1Q" target="_ug9zGE92EeiLc_mHq1tF1Q"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9zJ092EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9zFk92EeiLc_mHq1tF1Q" target="_ug9zF092EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9zKE92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9zKU92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9zGE92EeiLc_mHq1tF1Q" target="_ug9zEk92EeiLc_mHq1tF1Q">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_ug9zKk92EeiLc_mHq1tF1Q">
+        <body>Compteur &lt;= 3</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9zK092EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9zLE92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9zGE92EeiLc_mHq1tF1Q" target="_ug9zGU92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9zLU92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+  </packagedElement>
+  <packagedElement xmi:type="uml:OpaqueBehavior" xmi:id="_ug9zLk92EeiLc_mHq1tF1Q">
+    <body>Compteur &lt;= 3</body>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_ug9zL092EeiLc_mHq1tF1Q" name="Fonctionnalité 9 : Communication robot/superviseur perdue">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_ug9zME92EeiLc_mHq1tF1Q" name="locals"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_ug9zMU92EeiLc_mHq1tF1Q" name="Initial Node" outgoing="_ug9zOE92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:ConditionalNode" xmi:id="_ug9zMk92EeiLc_mHq1tF1Q" name="Message(LOST_MB) à nodejs" outgoing="_ug9zOk92EeiLc_mHq1tF1Q" incoming="_ug9zOE92EeiLc_mHq1tF1Q">
+      <ownedComment xmi:id="_ug9zM092EeiLc_mHq1tF1Q">
+        <body>message(LOST_MB)
+</body>
+      </ownedComment>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug9zNE92EeiLc_mHq1tF1Q" name="Mise à jour du moniteur du statut du robot" outgoing="_ug9zPE92EeiLc_mHq1tF1Q" incoming="_ug9zOk92EeiLc_mHq1tF1Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug9zNU92EeiLc_mHq1tF1Q" name="Fin connexion superviseur/robot" outgoing="_ug9zPk92EeiLc_mHq1tF1Q" incoming="_ug9zPE92EeiLc_mHq1tF1Q">
+      <body>Close_communication_robot</body>
+    </node>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_ug9zNk92EeiLc_mHq1tF1Q" name="Activity Final Node" incoming="_ug9zQE92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug9zN092EeiLc_mHq1tF1Q" name="Initialisation communication superviseur/robot" outgoing="_ug9zQE92EeiLc_mHq1tF1Q" incoming="_ug9zPk92EeiLc_mHq1tF1Q">
+      <body></body>
+    </node>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9zOE92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9zMU92EeiLc_mHq1tF1Q" target="_ug9zMk92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9zOU92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9zOk92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9zMk92EeiLc_mHq1tF1Q" target="_ug9zNE92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9zO092EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9zPE92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9zNE92EeiLc_mHq1tF1Q" target="_ug9zNU92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9zPU92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9zPk92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9zNU92EeiLc_mHq1tF1Q" target="_ug9zN092EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9zP092EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9zQE92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9zN092EeiLc_mHq1tF1Q" target="_ug9zNk92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9zQU92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_ug9zQk92EeiLc_mHq1tF1Q" name="Fonctionnalité 10 : Démarrage sans watchdog">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_ug9zQ092EeiLc_mHq1tF1Q" name="locals"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_ug9zRE92EeiLc_mHq1tF1Q" name="Initial Node" outgoing="_ug9zSU92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug9zRU92EeiLc_mHq1tF1Q" name="Demande ouverture sans watchdog" outgoing="_ug9zS092EeiLc_mHq1tF1Q" incoming="_ug9zTU92EeiLc_mHq1tF1Q">
+      <body>send_message_to_robot(START_WITHOUT_WD)
+</body>
+    </node>
+    <node xmi:type="uml:ConditionalNode" xmi:id="_ug9zRk92EeiLc_mHq1tF1Q" name="Demande utilisateur démarrage sans watchdog" outgoing="_ug9zTU92EeiLc_mHq1tF1Q" incoming="_ug9zSU92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:DecisionNode" xmi:id="_ug9zR092EeiLc_mHq1tF1Q" name="Decision-Merge" outgoing="_ug9zT092EeiLc_mHq1tF1Q _ug9zUk92EeiLc_mHq1tF1Q" incoming="_ug9zS092EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_ug9zSE92EeiLc_mHq1tF1Q" name="Activity Final Node" incoming="_ug9zT092EeiLc_mHq1tF1Q _ug9zUk92EeiLc_mHq1tF1Q"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9zSU92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9zRE92EeiLc_mHq1tF1Q" target="_ug9zRk92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9zSk92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9zS092EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9zRU92EeiLc_mHq1tF1Q" target="_ug9zR092EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9zTE92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9zTU92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9zRk92EeiLc_mHq1tF1Q" target="_ug9zRU92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9zTk92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9zT092EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9zR092EeiLc_mHq1tF1Q" target="_ug9zSE92EeiLc_mHq1tF1Q">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_ug9zUE92EeiLc_mHq1tF1Q">
+        <body>Ack</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9zUU92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug9zUk92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug9zR092EeiLc_mHq1tF1Q" target="_ug9zSE92EeiLc_mHq1tF1Q">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_ug9zU092EeiLc_mHq1tF1Q">
+        <body>No Ack</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug9zVE92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_ug-aAE92EeiLc_mHq1tF1Q" name="Fonctionnalité 11 : Démarrage avec watchdog">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_ug-aAU92EeiLc_mHq1tF1Q" name="locals"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_ug-aAk92EeiLc_mHq1tF1Q" name="Initial Node" outgoing="_ug-aCE92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug-aA092EeiLc_mHq1tF1Q" name="Demande ouvertre avec watchdog" outgoing="_ug-aCk92EeiLc_mHq1tF1Q" incoming="_ug-aDE92EeiLc_mHq1tF1Q">
+      <body>send_message_to_robot(START_WITH_WD)</body>
+    </node>
+    <node xmi:type="uml:ConditionalNode" xmi:id="_ug-aBE92EeiLc_mHq1tF1Q" name="Demande utilisateur de démarrage avec watchdog" outgoing="_ug-aDE92EeiLc_mHq1tF1Q" incoming="_ug-aCE92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:DecisionNode" xmi:id="_ug-aBU92EeiLc_mHq1tF1Q" name="Decision-Merge" outgoing="_ug-aDk92EeiLc_mHq1tF1Q _ug-aEU92EeiLc_mHq1tF1Q" incoming="_ug-aCk92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug-aBk92EeiLc_mHq1tF1Q" name="Mise à jour de l'état du robot" outgoing="_ug-aFE92EeiLc_mHq1tF1Q" incoming="_ug-aDk92EeiLc_mHq1tF1Q _ug-aEU92EeiLc_mHq1tF1Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_ug-aB092EeiLc_mHq1tF1Q" name="Activity Final Node" incoming="_ug-aFE92EeiLc_mHq1tF1Q"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug-aCE92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug-aAk92EeiLc_mHq1tF1Q" target="_ug-aBE92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug-aCU92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug-aCk92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug-aA092EeiLc_mHq1tF1Q" target="_ug-aBU92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug-aC092EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug-aDE92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug-aBE92EeiLc_mHq1tF1Q" target="_ug-aA092EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug-aDU92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug-aDk92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug-aBU92EeiLc_mHq1tF1Q" target="_ug-aBk92EeiLc_mHq1tF1Q">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_ug-aD092EeiLc_mHq1tF1Q">
+        <body>Ack</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug-aEE92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug-aEU92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug-aBU92EeiLc_mHq1tF1Q" target="_ug-aBk92EeiLc_mHq1tF1Q">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_ug-aEk92EeiLc_mHq1tF1Q">
+        <body>No Ack</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug-aE092EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug-aFE92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug-aBk92EeiLc_mHq1tF1Q" target="_ug-aB092EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug-aFU92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_ug-aFk92EeiLc_mHq1tF1Q" name="Fonctionnalité 14 : Ouverture caméra">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_ug-aF092EeiLc_mHq1tF1Q" name="locals"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_ug-aGE92EeiLc_mHq1tF1Q" name="Initial Node" outgoing="_ug-aHk92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:ConditionalNode" xmi:id="_ug-aGU92EeiLc_mHq1tF1Q" name=" Demande du moniteur : ouverture caméra" outgoing="_ug-aIE92EeiLc_mHq1tF1Q" incoming="_ug-aHk92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug-aGk92EeiLc_mHq1tF1Q" name="Démarrage caméra" outgoing="_ug-aIk92EeiLc_mHq1tF1Q" incoming="_ug-aIE92EeiLc_mHq1tF1Q">
+      <body>message(CAM, CAM_OPEN)</body>
+    </node>
+    <node xmi:type="uml:DecisionNode" xmi:id="_ug-aG092EeiLc_mHq1tF1Q" name="Decision-Merge" outgoing="_ug-aJE92EeiLc_mHq1tF1Q _ug-aJ092EeiLc_mHq1tF1Q" incoming="_ug-aIk92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_ug-aHE92EeiLc_mHq1tF1Q" name="Activity Final Node" incoming="_ug-aJE92EeiLc_mHq1tF1Q _ug-aKk92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug-aHU92EeiLc_mHq1tF1Q" name="Envoi message au moniteur" outgoing="_ug-aKk92EeiLc_mHq1tF1Q" incoming="_ug-aJ092EeiLc_mHq1tF1Q">
+      <body></body>
+    </node>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug-aHk92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug-aGE92EeiLc_mHq1tF1Q" target="_ug-aGU92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug-aH092EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug-aIE92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug-aGU92EeiLc_mHq1tF1Q" target="_ug-aGk92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug-aIU92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug-aIk92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug-aGk92EeiLc_mHq1tF1Q" target="_ug-aG092EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug-aI092EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug-aJE92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug-aG092EeiLc_mHq1tF1Q" target="_ug-aHE92EeiLc_mHq1tF1Q">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_ug-aJU92EeiLc_mHq1tF1Q">
+        <body>Connexion réussie</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug-aJk92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug-aJ092EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug-aG092EeiLc_mHq1tF1Q" target="_ug-aHU92EeiLc_mHq1tF1Q">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_ug-aKE92EeiLc_mHq1tF1Q">
+        <body>Echec connexion</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug-aKU92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug-aKk92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug-aHU92EeiLc_mHq1tF1Q" target="_ug-aHE92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug-aK092EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_ug-aLE92EeiLc_mHq1tF1Q" name="Fonctionnalité 15 : envoi régulier d'image">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_ug-aLU92EeiLc_mHq1tF1Q" name="locals"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_ug-aLk92EeiLc_mHq1tF1Q" name="Initial Node" outgoing="_ug-aNk92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:ConditionalNode" xmi:id="_ug-aL092EeiLc_mHq1tF1Q" name="Caméra ouverte" outgoing="_ug-aOE92EeiLc_mHq1tF1Q" incoming="_ug-aNk92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:JoinNode" xmi:id="_ug-aME92EeiLc_mHq1tF1Q" name="Fork/Join" outgoing="_ug-aOk92EeiLc_mHq1tF1Q" incoming="_ug-aOE92EeiLc_mHq1tF1Q _ug-aO092EeiLc_mHq1tF1Q _ug-aQ092EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:ForkNode" xmi:id="_ug-aMU92EeiLc_mHq1tF1Q" name="Fork/Join" outgoing="_ug-aO092EeiLc_mHq1tF1Q _ug-aPU92EeiLc_mHq1tF1Q" incoming="_ug-aOk92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug-aMk92EeiLc_mHq1tF1Q" name="Récupération image" outgoing="_ug-aP092EeiLc_mHq1tF1Q" incoming="_ug-aPU92EeiLc_mHq1tF1Q">
+      <body>get_image()</body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug-aM092EeiLc_mHq1tF1Q" name="Compression image" outgoing="_ug-aQU92EeiLc_mHq1tF1Q" incoming="_ug-aP092EeiLc_mHq1tF1Q">
+      <body>compress_image(image)</body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug-aNE92EeiLc_mHq1tF1Q" name="Envoi image au moniteur" outgoing="_ug-aQ092EeiLc_mHq1tF1Q" incoming="_ug-aQU92EeiLc_mHq1tF1Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:AcceptEventAction" xmi:id="_ug-aNU92EeiLc_mHq1tF1Q" name="Attente 100 ms"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug-aNk92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug-aLk92EeiLc_mHq1tF1Q" target="_ug-aL092EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug-aN092EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug-aOE92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug-aL092EeiLc_mHq1tF1Q" target="_ug-aME92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug-aOU92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug-aOk92EeiLc_mHq1tF1Q" source="_ug-aME92EeiLc_mHq1tF1Q" target="_ug-aMU92EeiLc_mHq1tF1Q"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug-aO092EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug-aMU92EeiLc_mHq1tF1Q" target="_ug-aME92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug-aPE92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug-aPU92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug-aMU92EeiLc_mHq1tF1Q" target="_ug-aMk92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug-aPk92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug-aP092EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug-aMk92EeiLc_mHq1tF1Q" target="_ug-aM092EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug-aQE92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug-aQU92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug-aM092EeiLc_mHq1tF1Q" target="_ug-aNE92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug-aQk92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug-aQ092EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug-aNE92EeiLc_mHq1tF1Q" target="_ug-aME92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug-aRE92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_ug-aRU92EeiLc_mHq1tF1Q" name="Fonctionnalité 17 : Calcul de position du robot">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_ug-aRk92EeiLc_mHq1tF1Q" name="locals"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug-aR092EeiLc_mHq1tF1Q" name="Trouver position du robot" outgoing="_ug-aU092EeiLc_mHq1tF1Q" incoming="_ug-aV092EeiLc_mHq1tF1Q">
+      <body>find_position()
+message(CAM,CAM_COMPUTE_POSITION)</body>
+    </node>
+    <node xmi:type="uml:InitialNode" xmi:id="_ug-aSE92EeiLc_mHq1tF1Q" name="Initial Node" outgoing="_ug-aVU92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:ConditionalNode" xmi:id="_ug-aSU92EeiLc_mHq1tF1Q" name="Demande utilisateur de calcul de position robot" outgoing="_ug-aV092EeiLc_mHq1tF1Q" incoming="_ug-aVU92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug-aSk92EeiLc_mHq1tF1Q" name="Recupération image" outgoing="_ug-aWU92EeiLc_mHq1tF1Q" incoming="_ug-aU092EeiLc_mHq1tF1Q _ug-abU92EeiLc_mHq1tF1Q">
+      <body>get_image()
+</body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug-aS092EeiLc_mHq1tF1Q" name="Detection position robot" outgoing="_ug-aW092EeiLc_mHq1tF1Q" incoming="_ug-aWU92EeiLc_mHq1tF1Q">
+      <body>detect_position(image, arena)
+</body>
+    </node>
+    <node xmi:type="uml:DecisionNode" xmi:id="_ug-aTE92EeiLc_mHq1tF1Q" name="Decision-Merge" outgoing="_ug-aXU92EeiLc_mHq1tF1Q _ug-aYE92EeiLc_mHq1tF1Q" incoming="_ug-aW092EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug-aTU92EeiLc_mHq1tF1Q" name="Envoi position robot" outgoing="_ug-aY092EeiLc_mHq1tF1Q" incoming="_ug-aXU92EeiLc_mHq1tF1Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug-aTk92EeiLc_mHq1tF1Q" name="Position (-1;-1)" outgoing="_ug-aZU92EeiLc_mHq1tF1Q" incoming="_ug-aYE92EeiLc_mHq1tF1Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug-aT092EeiLc_mHq1tF1Q" name="Mise à jour position" outgoing="_ug-aZ092EeiLc_mHq1tF1Q" incoming="_ug-aY092EeiLc_mHq1tF1Q _ug-aZU92EeiLc_mHq1tF1Q">
+      <body>update_position()
+</body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug-aUE92EeiLc_mHq1tF1Q" name="Compression image" outgoing="_ug-aaU92EeiLc_mHq1tF1Q" incoming="_ug-aZ092EeiLc_mHq1tF1Q">
+      <body>compress_image(image)</body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug-aUU92EeiLc_mHq1tF1Q" name="Envoi image vers moniteur" outgoing="_ug-aa092EeiLc_mHq1tF1Q" incoming="_ug-aaU92EeiLc_mHq1tF1Q">
+      <body>message(IMG, jpgimage)</body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug-aUk92EeiLc_mHq1tF1Q" name="Misa à jour image" outgoing="_ug-abU92EeiLc_mHq1tF1Q" incoming="_ug-aa092EeiLc_mHq1tF1Q">
+      <body>update_image()</body>
+    </node>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug-aU092EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug-aR092EeiLc_mHq1tF1Q" target="_ug-aSk92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug-aVE92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug-aVU92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug-aSE92EeiLc_mHq1tF1Q" target="_ug-aSU92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug-aVk92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug-aV092EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug-aSU92EeiLc_mHq1tF1Q" target="_ug-aR092EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug-aWE92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug-aWU92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug-aSk92EeiLc_mHq1tF1Q" target="_ug-aS092EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug-aWk92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug-aW092EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug-aS092EeiLc_mHq1tF1Q" target="_ug-aTE92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug-aXE92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug-aXU92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug-aTE92EeiLc_mHq1tF1Q" target="_ug-aTU92EeiLc_mHq1tF1Q">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_ug-aXk92EeiLc_mHq1tF1Q">
+        <body>position != null</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug-aX092EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug-aYE92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug-aTE92EeiLc_mHq1tF1Q" target="_ug-aTk92EeiLc_mHq1tF1Q">
+      <guard xmi:type="uml:OpaqueExpression" xmi:id="_ug-aYU92EeiLc_mHq1tF1Q">
+        <body>position == null</body>
+      </guard>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug-aYk92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug-aY092EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug-aTU92EeiLc_mHq1tF1Q" target="_ug-aT092EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug-aZE92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug-aZU92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug-aTk92EeiLc_mHq1tF1Q" target="_ug-aT092EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug-aZk92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug-aZ092EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug-aT092EeiLc_mHq1tF1Q" target="_ug-aUE92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug-aaE92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug-aaU92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug-aUE92EeiLc_mHq1tF1Q" target="_ug-aUU92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug-aak92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug-aa092EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug-aUU92EeiLc_mHq1tF1Q" target="_ug-aUk92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug-abE92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug-abU92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug-aUk92EeiLc_mHq1tF1Q" target="_ug-aSk92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug-abk92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_ug-ab092EeiLc_mHq1tF1Q" name="Fonctionnalité 18 : Arrêt calcul de position">
+    <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_ug_BEE92EeiLc_mHq1tF1Q" name="locals"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_ug_BEU92EeiLc_mHq1tF1Q" name="Initial Node" outgoing="_ug_BFU92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:ConditionalNode" xmi:id="_ug_BEk92EeiLc_mHq1tF1Q" name="Demande utilisateur d'arrêt du calcul de position" outgoing="_ug_BF092EeiLc_mHq1tF1Q" incoming="_ug_BFU92EeiLc_mHq1tF1Q"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ug_BE092EeiLc_mHq1tF1Q" name="Arrêt calcul de position" outgoing="_ug_BGU92EeiLc_mHq1tF1Q" incoming="_ug_BF092EeiLc_mHq1tF1Q">
+      <body></body>
+    </node>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_ug_BFE92EeiLc_mHq1tF1Q" name="Activity Final Node" incoming="_ug_BGU92EeiLc_mHq1tF1Q"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug_BFU92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug_BEU92EeiLc_mHq1tF1Q" target="_ug_BEk92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug_BFk92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug_BF092EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug_BEk92EeiLc_mHq1tF1Q" target="_ug_BE092EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug_BGE92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ug_BGU92EeiLc_mHq1tF1Q" name="ControlFlow" source="_ug_BE092EeiLc_mHq1tF1Q" target="_ug_BFE92EeiLc_mHq1tF1Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ug_BGk92EeiLc_mHq1tF1Q" value="1"/>
+    </edge>
+  </packagedElement>
+</uml:Model>

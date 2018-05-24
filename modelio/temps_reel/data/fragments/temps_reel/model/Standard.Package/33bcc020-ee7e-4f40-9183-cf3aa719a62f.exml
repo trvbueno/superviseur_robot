@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Liste des Fonctionnalités" version="4">
+  <OBJECT>
+    <ID name="Liste des Fonctionnalités" mc="Standard.Package" uid="33bcc020-ee7e-4f40-9183-cf3aa719a62f"/>
+    <PID name="temps_reel" mc="Standard.Project" uid="2131f078-dc6c-4a6d-83bc-4315f51751a5"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Liste des Fonctionnalités]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedBehavior">
+        <COMPID name="Fonctionnalité 1 : Lancement de NodeJS et Mise en Attente de Connexion" mc="Standard.Activity" uid="893c3d6a-e1e6-4367-a9e3-922ea9c5bbe7"/>
+        <COMPID name="Fonctionnalité 2 : Etablissement du Socket" mc="Standard.Activity" uid="60d4bef7-2ae5-4985-8666-e331768294ed"/>
+        <COMPID name="Fonctionnalité 3 : Réception des Messages" mc="Standard.Activity" uid="10be9627-0893-4b42-9dba-923f9e54ccc6"/>
+        <COMPID name="Fonctionnalité 4 : Envoi des Messages" mc="Standard.Activity" uid="63c1bd17-e7c1-4374-9114-d8baf46fd852"/>
+        <COMPID name="Fonctionnalité 5 : Détection de la perte de communication" mc="Standard.Activity" uid="3ea7cd04-d6eb-4139-b1e4-cf4154de85e7"/>
+        <COMPID name="Fonctionnalité 6 : Reprise de la communication" mc="Standard.Activity" uid="2e277270-3a50-44d2-8acb-011d30cdb01c"/>
+        <COMPID name="Fonctionnalité 7 : Mettre en Place la Communication avec le Robot" mc="Standard.Activity" uid="14729af6-881d-4cb2-a5b1-0dbffa944817"/>
+        <COMPID name="Fonctionnalité 8 : Surveillance communication robot/superviseur" mc="Standard.Activity" uid="5d521588-e8ae-4230-803a-e0f63bd96050"/>
+        <COMPID name="Fonctionnalité 9 : Communication robot/superviseur perdue" mc="Standard.Activity" uid="e0fd9be4-17d0-4cab-9020-67940f0fc1af"/>
+        <COMPID name="Fonctionnalité 10 : Démarrage sans watchdog" mc="Standard.Activity" uid="417139da-591e-48ab-81a2-cf90bd3187b4"/>
+        <COMPID name="Fonctionnalité 11 : Démarrage avec watchdog" mc="Standard.Activity" uid="f5571941-b5ce-42a0-b92e-10d25a3c136b"/>
+        <COMPID name="Fonctionnalité 12 : Déplacement manuel du robot" mc="Standard.Activity" uid="438232c0-071e-4e54-adca-106bdfb32b1e"/>
+        <COMPID name="Fonctionnalité 13 : Mise à jour du niveau de batterie" mc="Standard.Activity" uid="f54e6115-368a-42af-a660-1163a0520d52"/>
+        <COMPID name="Fonctionnalité 14 : Ouverture caméra" mc="Standard.Activity" uid="210e8057-dff4-4fc5-a7d0-7fe3027abae5"/>
+        <COMPID name="Fonctionnalité 15 : envoi régulier d'image" mc="Standard.Activity" uid="013f1249-5c03-42a6-9efd-67cf79e36bad"/>
+        <COMPID name="Fonctionnalité 16 : Recherche de l'arène" mc="Standard.Activity" uid="433331cc-9362-4049-bd96-9579ee53dbbb"/>
+        <COMPID name="Fonctionnalité 17 : Calcul de position du robot" mc="Standard.Activity" uid="6936ccec-48bf-40e7-95c0-955f49ed0b5f"/>
+        <COMPID name="Fonctionnalité 18 : Arrêt calcul de position" mc="Standard.Activity" uid="03bdb6b7-06f0-494a-a45e-74fd74653976"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

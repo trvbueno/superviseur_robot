@@ -1,0 +1,73 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Fonctionnalité 6" version="4">
+  <OBJECT>
+    <ID name="Fonctionnalité 6" mc="Standard.ActivityDiagram" uid="02c9a9ba-7e1c-4ca5-bca9-3b19b05a6f61"/>
+    <PID name="Fonctionnalité 6 : Reprise de la communication" mc="Standard.Activity" uid="2e277270-3a50-44d2-8acb-011d30cdb01c"/>
+    <ATTRIBUTES>
+      <ATT name="IsVertical">false</ATT>
+      <ATT name="UiDataVersion">231</ATT>
+      <ATT name="UiData"><![CDATA[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]]></ATT>
+      <ATT name="Name"><![CDATA[Fonctionnalité 6]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <LINK relation="Represented">
+        <REFOBJ>
+          <ID name="Fermeture du serveur" mc="Standard.OpaqueAction" uid="359d85f4-3e7c-4a09-a21a-66ac28726952"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="Initial Node" mc="Standard.InitialNode" uid="b1487454-6225-4615-bbe6-4708abff290f"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="Requête de fermeture" mc="Standard.ConditionalNode" uid="f2241d7e-50c4-4304-94ca-a18f946fac95"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="ControlFlow" mc="Standard.ControlFlow" uid="4305133d-e745-4ff5-84d5-69d7ff37b1d0"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="Arrêt de nodejs" mc="Standard.OpaqueAction" uid="db089b1e-a2b3-434d-acb0-57b1cc006d52"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="ControlFlow" mc="Standard.ControlFlow" uid="270ab523-23a4-4fde-b02d-bcea62417aa1"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="ControlFlow" mc="Standard.ControlFlow" uid="c1d5e5ed-5e47-49d2-933e-0abff7c6125b"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="Nettoyage superviseur" mc="Standard.OpaqueAction" uid="387b2742-c91c-4953-9673-1903509b06af"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="ControlFlow" mc="Standard.ControlFlow" uid="64f17c62-0b42-4c9d-a7ba-e823b813714a"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="Activity Final Node" mc="Standard.ActivityFinalNode" uid="9f8360ee-bb4e-4590-9ae9-71bfe357fb35"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="ControlFlow" mc="Standard.ControlFlow" uid="5d129ea5-9564-41c8-ba5e-c3d2ffe09723"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="Stopper le robot" mc="Standard.OpaqueAction" uid="9ca0d3aa-f38d-430f-92e6-b3abe64a169e"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="ControlFlow" mc="Standard.ControlFlow" uid="fc5a1670-f769-4bf9-bd7e-6347de2c7d50"/>
+        </REFOBJ>
+      </LINK>
+      <COMP relation="Descriptor">
+        <OBJECT>
+          <ID name="" mc="Infrastructure.Note" uid="88650d23-31d2-4a92-aeb8-76f884e83e5a"/>
+          <ATTRIBUTES>
+            <ATT name="Content"></ATT>
+            <ATT name="MimeType"><![CDATA[text/plain]]></ATT>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Model">
+              <FOREIGNID name="description" mc="Infrastructure.NoteType" uid="00000000-0000-3e81-0000-000000000000"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

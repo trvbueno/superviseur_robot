@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Liste des Threads" version="4">
+  <OBJECT>
+    <ID name="Liste des Threads" mc="Standard.Package" uid="ae84d912-ff97-49f9-9273-0f690c1a42b0"/>
+    <PID name="temps_reel" mc="Standard.Project" uid="2131f078-dc6c-4a6d-83bc-4315f51751a5"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Liste des Threads]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedBehavior">
+        <COMPID name="th_server" mc="Standard.Activity" uid="1c2eb681-15d2-45ed-a878-a394151c1c1c"/>
+        <COMPID name="th_receiveFromMom" mc="Standard.Activity" uid="64f53e77-d644-4344-a3d3-fdbc3ee47d81"/>
+        <COMPID name="th_sendFromMom" mc="Standard.Activity" uid="3bdf8ff0-236e-4a80-9de3-dfc4e8793bdc"/>
+        <COMPID name="th_openComRobot" mc="Standard.Activity" uid="9edf0c8f-4199-45cf-babd-5f89e4aff75e"/>
+        <COMPID name="th_startCamera" mc="Standard.Activity" uid="6d2ed229-b6ad-4edd-b06e-81fcb8402607"/>
+        <COMPID name="th_pictures" mc="Standard.Activity" uid="2b64056c-b963-4326-96b8-00a4aef43c0e"/>
+        <COMPID name="th_batteryRobot" mc="Standard.Activity" uid="64556bdb-ae7c-4a77-9d3b-78f67a55e263"/>
+        <COMPID name="th_startRobot" mc="Standard.Activity" uid="de4042b4-9425-4785-8f6a-32e08b3a98fb"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

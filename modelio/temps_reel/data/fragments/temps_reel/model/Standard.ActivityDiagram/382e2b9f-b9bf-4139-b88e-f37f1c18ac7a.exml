@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="th_startRobot" version="4">
+  <OBJECT>
+    <ID name="th_startRobot" mc="Standard.ActivityDiagram" uid="382e2b9f-b9bf-4139-b88e-f37f1c18ac7a"/>
+    <PID name="th_startRobot" mc="Standard.Activity" uid="de4042b4-9425-4785-8f6a-32e08b3a98fb"/>
+    <ATTRIBUTES>
+      <ATT name="IsVertical">false</ATT>
+      <ATT name="UiDataVersion">74</ATT>
+      <ATT name="UiData"><![CDATA[eJztW+tu4jgUfpUI7d+khITb0umoLR22Ki0Vnd3V/qpM7ICnTsw6ppRHmueYF1s7AZoGSEwaoDuDVKnUwcc+Pt93fC7p6ecXj2jPiAWY+p9KplEuaZ/PTnuDb8jhGoZiqKTx2Rh9KlE2NDwKEcHUgBgMGfAMBDGnzAAOx8+YzwxEkId8HixHFl/seOfzkXY0UtI88I2yx+XS5dLZ6T2jY8T4TPOBJ1YkYEYnvA04EM/+AmSC5lvxJ4SUTs5OTxYTVqY+8BlBpTeKVNIUCeT3A8OhDBnRXIX9XYLAARDBxWJXL7yPXMVV7oSI+UwNvfD24FrsMfwoP9xGMzXLeEkoehKplKY8QwRwBMVeEud2K4e0Zzkijwj4EDBoJCyjWY0Kqgyarj5oDlzdNq2mPmg0kO5addd0zAZw6iD99AkI+I1Pp34XDBBJbOKBM+wPS2d89BhwwHifDig/PQm/kqoVJejav6TemAaYC5tskKsg6nKECWRISujigL+BiZUL79gXWwJE4Pw6+vQufPfFZoA/lNCYG6tSKbca5ZZVET9bI9/eOfIl7COO7Rqs8+O9E1po1WYT1q1yVbdhs6zbNdTUG3atodugZltuo4xg2SwAqPMlNbnmx8FptRic3jPsATaTuhUM2XIrL15rqngVol5m7watfQStMmhvAfY3iVyeW8yU9VSULlDpUM+jvkGkPobckMCnvB8jBd8Dy2ufoyFiS5OYta3R2Dii8aOi8UGoTQjmKjKDEZ0+YmdF1gUViwF/eUwuIAFKVzkU9YRmU8pgAdI4cJ5EKIQYogXtjawxRVIWZ5OkqFeoRbdNBrebuTMDwfUoIRDWKPbSMWvllikCJdM2W7Xy1lw3yz9RqNQbg38nKDpmDcBBte7YDV38QrpdrUC96Vi2Xke2DWENujVQBNEf8NAHBDGNyahegz++i+iC/fj+ceImM39CG4PtbsOmvOhVTnGLuarM5BaPGC4gjNoGy/mS1cWILyaMkLAsi9Vn5Lb+CAf3X6Ix95epmkf/mxO7EWIKjLjWRCIfJeBS3Np74604BfLl9Ynr6YLC2QHou+fE/cjhvBweCHykpvCrGUBipTWBkDG3YVYKrsKCHHWD8FvzR4IIbeSCCeFhIf0qGi2+nJBM1hU4sudywjFGy8uRaw8MowrUsbqw4+rCBt/yXoeSuVAX+0/B2sA6X21D2J8LeLmEToUHuoz++iL+2trpxPuWqTWJ2NrCZxChkFj5HvCRypIPdMIcdO47I8oSi6ZnyauLglBIIBbvg9kDwRAMyEKywk4gdl0BUd9BCWO3sVgpBMHS3GZLBElbO7U2CvhaTVOT5oNqaldbK/VqBU2l9ecwmhMgiwd9ATzEbrCfdDhX/sT7XSkXu0Gz3wTgfRQyNxJ4DZeq9Ppf/+h1enfn3QwHEyKyD56Sp5MdkHLAhoirTVU4xXVvEKSm2/+z6mDMO2nIcd0BEpd2zQWmuLRhRW/W3KbeQFatjur1qlW3Cri0Y0sqXKmRc0pYILVA8Jas4VPJUrTgm4I9IhB1GBiPsBOzR06Hk9h9em63u92bm6/IjdtHLzxyR/KCvAXjt5qkZnqHi8/zvRiUmmwUH5JXklz6BcmtGoR7APtRwHkMwndVcqqkpqRrIqBX1yB4/IVFtSdAXq//LnUAVwuH3Pn0ZDBEJ4N4U8RIOuCEmElGjpDRTHnOmF7JmM8LskT+lqocQXCIQlwEsXr+lRj8G+HhiO/fs1p7bKcenaqyU52GcFB9hcfaNhV84x5encKVD8cUb+Mbskid4ROySJ0xHa1kQzlZbaVnmLlZ3ZkIVB6A1HvMgo6kVib1UKJBmdNb5FH75fSKybcktb6S6+yM1iqdOhH5cfwUf//WpcwD8uxklXDI6GQcvoy7HJawOGcsR83w/czec//u56R3gZyWaJEweQQSEMrkVm2eHTKerx82oN9PPG+lZ1ZbuwgJ46AjBw7gHFJzk6NzOJxzCBGS500ytdd87W37T7+gO9FX2uwFOpSTsPqa1i6VfUzFZunmxkJWk+hi2GZgKqDXBTOUaKLZajkijAQEBpEiZBE4LnE/Lm27WQf/V0qcjFYX9G93jO75P1f9x4vzy5tOv/fnXbtgH5DS2oiZbW3/3FZrqh7xsAM8fO3dFw2EjY/+AwJ13bM=]]></ATT>
+      <ATT name="Name"><![CDATA[th_startRobot]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <LINK relation="Represented">
+        <REFOBJ>
+          <ID name="Initial Node" mc="Standard.InitialNode" uid="599d7305-4d90-46e9-8468-4a643f80ed01"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="Signaler robot démarré" mc="Standard.OpaqueAction" uid="adb57c48-b57e-452d-9c34-7e44dd6df6a1"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="ControlFlow" mc="Standard.ControlFlow" uid="ecffbe48-6fa1-45d2-96f9-8e367e775373"/>
+        </REFOBJ>
+      </LINK>
+      <COMP relation="Descriptor">
+        <OBJECT>
+          <ID name="" mc="Infrastructure.Note" uid="ee21b590-1ee4-45fd-9e96-c70342b27c39"/>
+          <ATTRIBUTES>
+            <ATT name="Content"></ATT>
+            <ATT name="MimeType"><![CDATA[text/plain]]></ATT>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Model">
+              <FOREIGNID name="description" mc="Infrastructure.NoteType" uid="00000000-0000-3e81-0000-000000000000"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
