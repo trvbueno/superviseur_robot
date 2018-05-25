@@ -21,9 +21,9 @@
           <DEPENDENCIES>
             <COMP relation="Outgoing">
               <OBJECT>
-                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="ecffbe48-6fa1-45d2-96f9-8e367e775373"/>
+                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="9e1f7fb3-5266-40dc-83f1-44c068d64025"/>
                 <ATTRIBUTES>
-                  <ATT name="Guard"><![CDATA[startRobot()]]></ATT>
+                  <ATT name="Guard"></ATT>
                   <ATT name="Weight"><![CDATA[1]]></ATT>
                   <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
                   <ATT name="status">1970354901745664</ATT>
@@ -31,7 +31,7 @@
                 <DEPENDENCIES>
                   <LINK relation="Target">
                     <REFOBJ>
-                      <ID name="Signaler robot démarré" mc="Standard.OpaqueAction" uid="adb57c48-b57e-452d-9c34-7e44dd6df6a1"/>
+                      <ID name="Attente message" mc="Standard.OpaqueAction" uid="0a6dc7a8-a80c-462a-ab2c-c4002fd324c3"/>
                     </REFOBJ>
                   </LINK>
                 </DEPENDENCIES>
@@ -42,13 +42,86 @@
         <OBJECT>
           <ID name="Signaler robot démarré" mc="Standard.OpaqueAction" uid="adb57c48-b57e-452d-9c34-7e44dd6df6a1"/>
           <ATTRIBUTES>
-            <ATT name="Body"><![CDATA[robotStarted = True]]></ATT>
+            <ATT name="Body"><![CDATA[rt_mutex_acquire(&mutex_robotStarted,TM_INFINITE)
+robotStarted = True
+rt_mutex_release(&mutex_robotStarted)]]></ATT>
             <ATT name="IsMultipleInstance">false</ATT>
             <ATT name="IsCompensation">false</ATT>
             <ATT name="Name"><![CDATA[Signaler robot démarré]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="Attente message" mc="Standard.OpaqueAction" uid="0a6dc7a8-a80c-462a-ab2c-c4002fd324c3"/>
+          <ATTRIBUTES>
+            <ATT name="Body"><![CDATA[listen(startRobot)
+]]></ATT>
+            <ATT name="IsMultipleInstance">false</ATT>
+            <ATT name="IsCompensation">false</ATT>
+            <ATT name="Name"><![CDATA[Attente message]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Outgoing">
+              <OBJECT>
+                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="ea5ab3c0-d5ab-43ac-b559-451cbe8b57ab"/>
+                <ATTRIBUTES>
+                  <ATT name="Guard"></ATT>
+                  <ATT name="Weight"><![CDATA[1]]></ATT>
+                  <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Target">
+                    <REFOBJ>
+                      <ID name="Decision-Merge" mc="Standard.DecisionMergeNode" uid="93f3f9bf-fa01-4d68-a737-a06dce6fa872"/>
+                    </REFOBJ>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="Envoi message démarrage robot avec WD" mc="Standard.OpaqueAction" uid="866bc77e-4db0-4b09-8aa1-dff9dbff6677"/>
+          <ATTRIBUTES>
+            <ATT name="Body"><![CDATA[send_message_to_robot(START_WITHOUT_WD)]]></ATT>
+            <ATT name="IsMultipleInstance">false</ATT>
+            <ATT name="IsCompensation">false</ATT>
+            <ATT name="Name"><![CDATA[Envoi message démarrage robot avec WD]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="Decision-Merge" mc="Standard.DecisionMergeNode" uid="93f3f9bf-fa01-4d68-a737-a06dce6fa872"/>
+          <ATTRIBUTES>
+            <ATT name="DecisionKind">ExclusiveDecision</ATT>
+            <ATT name="DecisionInputBehavior"></ATT>
+            <ATT name="Name"><![CDATA[Decision-Merge]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Outgoing">
+              <OBJECT>
+                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="9e1a84c2-a7ec-4b31-8276-6b0b888cf34e"/>
+                <ATTRIBUTES>
+                  <ATT name="Guard"></ATT>
+                  <ATT name="Weight"><![CDATA[1]]></ATT>
+                  <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Target">
+                    <REFOBJ>
+                      <ID name="Envoi message démarrage robot avec WD" mc="Standard.OpaqueAction" uid="866bc77e-4db0-4b09-8aa1-dff9dbff6677"/>
+                    </REFOBJ>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
         </OBJECT>
       </COMP>
       <COMP relation="OwnedCollaboration">

@@ -177,7 +177,9 @@
         <OBJECT>
           <ID name="Comptage erreur communication" mc="Standard.OpaqueAction" uid="b2ccd9dc-27e4-49a6-94cc-8ad8ca400179"/>
           <ATTRIBUTES>
-            <ATT name="Body"><![CDATA[comFails++]]></ATT>
+            <ATT name="Body"><![CDATA[mutex_comFails.acquire()
+comFails++
+mutex_comFails.unlock()]]></ATT>
             <ATT name="IsMultipleInstance">false</ATT>
             <ATT name="IsCompensation">false</ATT>
             <ATT name="Name"><![CDATA[Comptage erreur communication]]></ATT>
@@ -252,7 +254,9 @@
         <OBJECT>
           <ID name="Reset comptage" mc="Standard.OpaqueAction" uid="fce359b1-32e9-4a68-b6e0-64e6775540fc"/>
           <ATTRIBUTES>
-            <ATT name="Body"><![CDATA[comFails = 0]]></ATT>
+            <ATT name="Body"><![CDATA[rt_mutex_acquire(&mutex_move,TM_INFINITE)
+comFails = 0
+rt_mutex_release(&mutex_comFails)]]></ATT>
             <ATT name="IsMultipleInstance">false</ATT>
             <ATT name="IsCompensation">false</ATT>
             <ATT name="Name"><![CDATA[Reset comptage]]></ATT>

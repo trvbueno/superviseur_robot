@@ -22,6 +22,7 @@
         <COMPID name="th_pictures" mc="Standard.Activity" uid="2b64056c-b963-4326-96b8-00a4aef43c0e"/>
         <COMPID name="th_batteryRobot" mc="Standard.Activity" uid="64556bdb-ae7c-4a77-9d3b-78f67a55e263"/>
         <COMPID name="th_startRobot" mc="Standard.Activity" uid="de4042b4-9425-4785-8f6a-32e08b3a98fb"/>
+        <COMPID name="th_move" mc="Standard.Activity" uid="ef5e0000-056e-466d-9066-51eca99103de"/>
       </COMP>
     </DEPENDENCIES>
   </OBJECT>

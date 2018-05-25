@@ -147,7 +147,9 @@
         <OBJECT>
           <ID name="Caméra en marche" mc="Standard.OpaqueAction" uid="4788bc25-b0b0-4c95-8b13-a79a4b074130"/>
           <ATTRIBUTES>
-            <ATT name="Body"><![CDATA[cameraStarted = True]]></ATT>
+            <ATT name="Body"><![CDATA[rt_mutex_acquire(&mutex_image,TM_INFINITE)
+cameraStarted = True
+rt_mutex_release(&mutex_image)]]></ATT>
             <ATT name="IsMultipleInstance">false</ATT>
             <ATT name="IsCompensation">false</ATT>
             <ATT name="Name"><![CDATA[Caméra en marche]]></ATT>
