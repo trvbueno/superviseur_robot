@@ -149,8 +149,7 @@
         <OBJECT>
           <ID name="Le serveur est mort" mc="Standard.OpaqueAction" uid="dc65139b-93a3-481d-a298-b589e02eb7f9"/>
           <ATTRIBUTES>
-            <ATT name="Body"><![CDATA[send_message_to_monitor(OutputStream,header,data)
-]]></ATT>
+            <ATT name="Body"><![CDATA[V(serverKo)]]></ATT>
             <ATT name="IsMultipleInstance">false</ATT>
             <ATT name="IsCompensation">false</ATT>
             <ATT name="Name"><![CDATA[Le serveur est mort]]></ATT>

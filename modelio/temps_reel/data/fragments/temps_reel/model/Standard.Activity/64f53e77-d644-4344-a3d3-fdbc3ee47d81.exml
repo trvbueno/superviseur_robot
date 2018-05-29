@@ -83,7 +83,7 @@
               <OBJECT>
                 <ID name="ControlFlow" mc="Standard.ControlFlow" uid="537366ea-5f5f-4a9f-81c3-46a20fe816fa"/>
                 <ATTRIBUTES>
-                  <ATT name="Guard"><![CDATA[Demande de déplacement]]></ATT>
+                  <ATT name="Guard"><![CDATA[MOVE]]></ATT>
                   <ATT name="Weight"><![CDATA[1]]></ATT>
                   <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
                   <ATT name="status">1970354901745664</ATT>
@@ -99,7 +99,7 @@
               <OBJECT>
                 <ID name="ControlFlow" mc="Standard.ControlFlow" uid="ca149ffd-ef7c-4ed1-9156-2dde692bcf76"/>
                 <ATTRIBUTES>
-                  <ATT name="Guard"><![CDATA[Demande démarrage caméra]]></ATT>
+                  <ATT name="Guard"><![CDATA[CAM_OPEN]]></ATT>
                   <ATT name="Weight"><![CDATA[1]]></ATT>
                   <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
                   <ATT name="status">1970354901745664</ATT>
@@ -115,7 +115,7 @@
               <OBJECT>
                 <ID name="ControlFlow" mc="Standard.ControlFlow" uid="3a71581b-29c4-433f-a90b-114a1cab226e"/>
                 <ATTRIBUTES>
-                  <ATT name="Guard"><![CDATA[Demande connexion robot]]></ATT>
+                  <ATT name="Guard"><![CDATA[OPEN_COM_ROBOT]]></ATT>
                   <ATT name="Weight"><![CDATA[1]]></ATT>
                   <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
                   <ATT name="status">1970354901745664</ATT>
@@ -163,7 +163,7 @@
               <OBJECT>
                 <ID name="ControlFlow" mc="Standard.ControlFlow" uid="047b7b1e-234d-4b78-a12c-ed205cb2e4b7"/>
                 <ATTRIBUTES>
-                  <ATT name="Guard"></ATT>
+                  <ATT name="Guard"><![CDATA[START]]></ATT>
                   <ATT name="Weight"><![CDATA[1]]></ATT>
                   <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
                   <ATT name="status">1970354901745664</ATT>
@@ -172,6 +172,22 @@
                   <LINK relation="Target">
                     <REFOBJ>
                       <ID name="Démarrer robot" mc="Standard.OpaqueAction" uid="3a2e643c-8739-4729-9c51-4fb29ab778fd"/>
+                    </REFOBJ>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="ac583b85-b9bc-43ee-986d-18c75b74ac9b"/>
+                <ATTRIBUTES>
+                  <ATT name="Guard"><![CDATA[CAM_CLOSE]]></ATT>
+                  <ATT name="Weight"><![CDATA[1]]></ATT>
+                  <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Target">
+                    <REFOBJ>
+                      <ID name="Eteindre Caméra" mc="Standard.OpaqueAction" uid="45580cd5-9126-476d-9739-a16cf4b06054"/>
                     </REFOBJ>
                   </LINK>
                 </DEPENDENCIES>
@@ -384,6 +400,19 @@ rt_mutex_release(&mutex_move)]]></ATT>
               </OBJECT>
             </COMP>
           </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="Eteindre Caméra" mc="Standard.OpaqueAction" uid="45580cd5-9126-476d-9739-a16cf4b06054"/>
+          <ATTRIBUTES>
+            <ATT name="Body"><![CDATA[rt_mutex_acquire(&mutex_image,TM_INFINITE)
+cameraStarted = False
+rt_mutex_release(&mutex_image)]]></ATT>
+            <ATT name="IsMultipleInstance">false</ATT>
+            <ATT name="IsCompensation">false</ATT>
+            <ATT name="Name"><![CDATA[Eteindre Caméra]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
         </OBJECT>
       </COMP>
       <COMP relation="OwnedCollaboration">
