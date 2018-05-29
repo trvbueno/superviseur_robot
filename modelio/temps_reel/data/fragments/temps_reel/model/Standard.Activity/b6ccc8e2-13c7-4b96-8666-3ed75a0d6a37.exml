@@ -23,7 +23,7 @@
               <OBJECT>
                 <ID name="ControlFlow" mc="Standard.ControlFlow" uid="b57846b9-474a-493c-b32b-237add9e3cde"/>
                 <ATTRIBUTES>
-                  <ATT name="Guard"><![CDATA[comFails > 2 | P(serverKo)]]></ATT>
+                  <ATT name="Guard"><![CDATA[P(serverKo)]]></ATT>
                   <ATT name="Weight"><![CDATA[1]]></ATT>
                   <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
                   <ATT name="status">1970354901745664</ATT>
@@ -31,7 +31,7 @@
                 <DEPENDENCIES>
                   <LINK relation="Target">
                     <REFOBJ>
-                      <ID name="Alerte au moniteur" mc="Standard.OpaqueAction" uid="01ec9c96-ee0d-494e-b236-a84d0746838c"/>
+                      <ID name="Arrêt de la caméra" mc="Standard.OpaqueAction" uid="c00999e3-1ac0-490f-ae7a-be17c85600f9"/>
                     </REFOBJ>
                   </LINK>
                 </DEPENDENCIES>
@@ -96,36 +96,6 @@ rt_mutex_release(&mutex_robotStarted)]]></ATT>
                   <LINK relation="Target">
                     <REFOBJ>
                       <ID name="Lancement de la réinitialisation pour prochaine utilisation" mc="Standard.OpaqueAction" uid="5792581f-81d4-4885-a77e-089eacb17fdb"/>
-                    </REFOBJ>
-                  </LINK>
-                </DEPENDENCIES>
-              </OBJECT>
-            </COMP>
-          </DEPENDENCIES>
-        </OBJECT>
-        <OBJECT>
-          <ID name="Alerte au moniteur" mc="Standard.OpaqueAction" uid="01ec9c96-ee0d-494e-b236-a84d0746838c"/>
-          <ATTRIBUTES>
-            <ATT name="Body"><![CDATA[messageToMon(LOST_DMB)]]></ATT>
-            <ATT name="IsMultipleInstance">false</ATT>
-            <ATT name="IsCompensation">false</ATT>
-            <ATT name="Name"><![CDATA[Alerte au moniteur]]></ATT>
-            <ATT name="status">1970354901745664</ATT>
-          </ATTRIBUTES>
-          <DEPENDENCIES>
-            <COMP relation="Outgoing">
-              <OBJECT>
-                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="6227a44b-1b2e-412e-bbd7-a59ef9867da7"/>
-                <ATTRIBUTES>
-                  <ATT name="Guard"></ATT>
-                  <ATT name="Weight"><![CDATA[1]]></ATT>
-                  <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
-                  <ATT name="status">1970354901745664</ATT>
-                </ATTRIBUTES>
-                <DEPENDENCIES>
-                  <LINK relation="Target">
-                    <REFOBJ>
-                      <ID name="Arrêt de la caméra" mc="Standard.OpaqueAction" uid="c00999e3-1ac0-490f-ae7a-be17c85600f9"/>
                     </REFOBJ>
                   </LINK>
                 </DEPENDENCIES>

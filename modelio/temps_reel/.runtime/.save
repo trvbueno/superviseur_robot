@@ -1,4 +1,4 @@
-#Tue May 29 10:54:37 CEST 2018
+#Tue May 29 12:15:42 CEST 2018
 org.modelio.diagram.editor.OpenedDiagrams9='th_cleaner' {9485e5b0-773b-402d-8786-48d28cd3be1c} Standard.ActivityDiagram
 org.modelio.diagram.editor.OpenedDiagrams8='th_move' {e7375776-22b5-4aea-8554-fe94bb17db0d} Standard.ActivityDiagram
 org.modelio.diagram.editor.OpenedDiagrams7='th_startRobot' {382e2b9f-b9bf-4139-b88e-f37f1c18ac7a} Standard.ActivityDiagram
@@ -6,6 +6,6 @@ org.modelio.diagram.editor.OpenedDiagrams6='th_batteryRobot' {3a192b2d-61b6-4096
 org.modelio.diagram.editor.OpenedDiagrams5='th_pictures' {4287231d-4c40-426e-adc5-ddccf5b4bf5c} Standard.ActivityDiagram
 org.modelio.diagram.editor.OpenedDiagrams4='th_startCamera' {531c0c36-ef68-4840-9582-e670d2820e5c} Standard.ActivityDiagram
 org.modelio.diagram.editor.OpenedDiagrams3='th_openComRobot' {b8ecd06e-7d53-48d0-a5a4-9eb81191ce6a} Standard.ActivityDiagram
-org.modelio.diagram.editor.OpenedDiagrams2='th_sendFromMom' {d3e2f534-f760-4913-b480-c4a7e3c815e2} Standard.ActivityDiagram
+org.modelio.diagram.editor.OpenedDiagrams2='th_sendToMom' {d3e2f534-f760-4913-b480-c4a7e3c815e2} Standard.ActivityDiagram
 org.modelio.diagram.editor.OpenedDiagrams1='th_receiveFromMom' {027b8ee7-0ef4-436b-87ea-6aac402dd7fd} Standard.ActivityDiagram
 org.modelio.diagram.editor.OpenedDiagrams0='th_server' {00363bc7-e690-47ae-a99e-6820e3905465} Standard.ActivityDiagram

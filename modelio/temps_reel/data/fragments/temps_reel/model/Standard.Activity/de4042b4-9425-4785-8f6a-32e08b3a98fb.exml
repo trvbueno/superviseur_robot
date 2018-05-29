@@ -53,7 +53,7 @@ rt_mutex_release(&mutex_robotStarted)]]></ATT>
           <DEPENDENCIES>
             <COMP relation="Outgoing">
               <OBJECT>
-                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="e504765c-6f6a-4aff-98f1-ff324dfe177a"/>
+                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="536bdf63-3104-4154-81eb-991190383950"/>
                 <ATTRIBUTES>
                   <ATT name="Guard"></ATT>
                   <ATT name="Weight"><![CDATA[1]]></ATT>
@@ -63,7 +63,7 @@ rt_mutex_release(&mutex_robotStarted)]]></ATT>
                 <DEPENDENCIES>
                   <LINK relation="Target">
                     <REFOBJ>
-                      <ID name="Activity Final Node1" mc="Standard.ActivityFinalNode" uid="cc41acca-529e-4d4c-b498-7add0075bd42"/>
+                      <ID name="Vérification du nombre d'erreurs" mc="Standard.OpaqueAction" uid="d26a54bc-7b22-4ba4-a187-2ffae6bbede8"/>
                     </REFOBJ>
                   </LINK>
                 </DEPENDENCIES>
@@ -379,7 +379,7 @@ rt_mutex_release(&mutex_robotStarted)]]></ATT>
           <DEPENDENCIES>
             <COMP relation="Outgoing">
               <OBJECT>
-                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="f754a85d-c013-4a5a-81ce-434fe142228c"/>
+                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="080ed91e-4981-4991-8e27-5aa673e85521"/>
                 <ATTRIBUTES>
                   <ATT name="Guard"></ATT>
                   <ATT name="Weight"><![CDATA[1]]></ATT>
@@ -389,7 +389,7 @@ rt_mutex_release(&mutex_robotStarted)]]></ATT>
                 <DEPENDENCIES>
                   <LINK relation="Target">
                     <REFOBJ>
-                      <ID name="1 sec" mc="Standard.AcceptTimeEventAction" uid="79276343-b27e-4827-a209-9a2b0879799b"/>
+                      <ID name="Vérification du nombre d'erreurs" mc="Standard.OpaqueAction" uid="21d9634d-a81b-4b07-9a2d-78281472a860"/>
                     </REFOBJ>
                   </LINK>
                 </DEPENDENCIES>
@@ -409,7 +409,7 @@ rt_mutex_release(&mutex_robotStarted)]]></ATT>
           <DEPENDENCIES>
             <COMP relation="Outgoing">
               <OBJECT>
-                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="9021d8b7-ebac-4b5c-8c3b-6bfd09a14964"/>
+                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="197901b1-eee9-4d2e-a30b-d79b04130a8c"/>
                 <ATTRIBUTES>
                   <ATT name="Guard"></ATT>
                   <ATT name="Weight"><![CDATA[1]]></ATT>
@@ -426,14 +426,6 @@ rt_mutex_release(&mutex_robotStarted)]]></ATT>
               </OBJECT>
             </COMP>
           </DEPENDENCIES>
-        </OBJECT>
-        <OBJECT>
-          <ID name="Activity Final Node1" mc="Standard.ActivityFinalNode" uid="cc41acca-529e-4d4c-b498-7add0075bd42"/>
-          <ATTRIBUTES>
-            <ATT name="Name"><![CDATA[Activity Final Node1]]></ATT>
-            <ATT name="status">1970354901745664</ATT>
-          </ATTRIBUTES>
-          <DEPENDENCIES></DEPENDENCIES>
         </OBJECT>
         <OBJECT>
           <ID name="Reset de la variable comFails" mc="Standard.OpaqueAction" uid="8a88a116-e034-4fe1-b4d7-0f8949921a00"/>
@@ -460,6 +452,250 @@ rt_mutex_release(&mutex_comFails)]]></ATT>
                   <LINK relation="Target">
                     <REFOBJ>
                       <ID name="Envoi de message de reload au robot" mc="Standard.OpaqueAction" uid="1483c9da-6ee4-446b-88d2-36b2fa49632b"/>
+                    </REFOBJ>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="Vérification du nombre d'erreurs" mc="Standard.OpaqueAction" uid="21d9634d-a81b-4b07-9a2d-78281472a860"/>
+          <ATTRIBUTES>
+            <ATT name="Body"><![CDATA[rt_mutex_acquire(&mutex_move,TM_INFINITE)
+nb_erreurs = comFails
+rt_mutex_release(&mutex_comFails)]]></ATT>
+            <ATT name="IsMultipleInstance">false</ATT>
+            <ATT name="IsCompensation">false</ATT>
+            <ATT name="Name"><![CDATA[Vérification du nombre d'erreurs]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Outgoing">
+              <OBJECT>
+                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="2c9c6c8b-ff5c-4906-a9dc-f50561c19cab"/>
+                <ATTRIBUTES>
+                  <ATT name="Guard"></ATT>
+                  <ATT name="Weight"><![CDATA[1]]></ATT>
+                  <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Target">
+                    <REFOBJ>
+                      <ID name="Decision-Merge3" mc="Standard.DecisionMergeNode" uid="23e478b2-ecea-470e-a171-334dd8e5d563"/>
+                    </REFOBJ>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="Decision-Merge3" mc="Standard.DecisionMergeNode" uid="23e478b2-ecea-470e-a171-334dd8e5d563"/>
+          <ATTRIBUTES>
+            <ATT name="DecisionKind">ExclusiveDecision</ATT>
+            <ATT name="DecisionInputBehavior"></ATT>
+            <ATT name="Name"><![CDATA[Decision-Merge3]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Outgoing">
+              <OBJECT>
+                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="07508139-4fa6-4135-8772-bd44b4e6cc7e"/>
+                <ATTRIBUTES>
+                  <ATT name="Guard"><![CDATA[nb_erreurs > 2]]></ATT>
+                  <ATT name="Weight"><![CDATA[1]]></ATT>
+                  <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Target">
+                    <REFOBJ>
+                      <ID name="Lancement procédure d'arrêt" mc="Standard.OpaqueAction" uid="1be1f164-2c8a-4717-aaaf-fc4cf9221f3b"/>
+                    </REFOBJ>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="b942c1c7-722f-465e-a86b-9dbfb3a60194"/>
+                <ATTRIBUTES>
+                  <ATT name="Guard"></ATT>
+                  <ATT name="Weight"><![CDATA[1]]></ATT>
+                  <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Target">
+                    <REFOBJ>
+                      <ID name="1 sec" mc="Standard.AcceptTimeEventAction" uid="79276343-b27e-4827-a209-9a2b0879799b"/>
+                    </REFOBJ>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="Lancement procédure d'arrêt" mc="Standard.OpaqueAction" uid="1be1f164-2c8a-4717-aaaf-fc4cf9221f3b"/>
+          <ATTRIBUTES>
+            <ATT name="Body"><![CDATA[messageToMon(LOST_DMB)]]></ATT>
+            <ATT name="IsMultipleInstance">false</ATT>
+            <ATT name="IsCompensation">false</ATT>
+            <ATT name="Name"><![CDATA[Lancement procédure d'arrêt]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Outgoing">
+              <OBJECT>
+                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="206fe70d-fe0e-42ab-bbed-6def1fa4369a"/>
+                <ATTRIBUTES>
+                  <ATT name="Guard"></ATT>
+                  <ATT name="Weight"><![CDATA[1]]></ATT>
+                  <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Target">
+                    <REFOBJ>
+                      <ID name="1 sec" mc="Standard.AcceptTimeEventAction" uid="79276343-b27e-4827-a209-9a2b0879799b"/>
+                    </REFOBJ>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="Vérification du nombre d'erreurs" mc="Standard.OpaqueAction" uid="d26a54bc-7b22-4ba4-a187-2ffae6bbede8"/>
+          <ATTRIBUTES>
+            <ATT name="Body"><![CDATA[rt_mutex_acquire(&mutex_move,TM_INFINITE)
+nb_erreurs = comFails
+rt_mutex_release(&mutex_comFails)]]></ATT>
+            <ATT name="IsMultipleInstance">false</ATT>
+            <ATT name="IsCompensation">false</ATT>
+            <ATT name="Name"><![CDATA[Vérification du nombre d'erreurs]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Outgoing">
+              <OBJECT>
+                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="be748101-d081-4bc3-9cde-c10867c970e3"/>
+                <ATTRIBUTES>
+                  <ATT name="Guard"></ATT>
+                  <ATT name="Weight"><![CDATA[1]]></ATT>
+                  <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Target">
+                    <REFOBJ>
+                      <ID name="Decision-Merge4" mc="Standard.DecisionMergeNode" uid="79b64127-2772-49a0-ba79-06633105cbfd"/>
+                    </REFOBJ>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="Decision-Merge4" mc="Standard.DecisionMergeNode" uid="79b64127-2772-49a0-ba79-06633105cbfd"/>
+          <ATTRIBUTES>
+            <ATT name="DecisionKind">ExclusiveDecision</ATT>
+            <ATT name="DecisionInputBehavior"></ATT>
+            <ATT name="Name"><![CDATA[Decision-Merge4]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Outgoing">
+              <OBJECT>
+                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="8a38bd50-f561-44c1-8e07-9edc149bad50"/>
+                <ATTRIBUTES>
+                  <ATT name="Guard"><![CDATA[nb_erreurs >2]]></ATT>
+                  <ATT name="Weight"><![CDATA[1]]></ATT>
+                  <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Target">
+                    <REFOBJ>
+                      <ID name="Lancement procédure d'arrêt" mc="Standard.OpaqueAction" uid="d963e235-c0bf-4c9a-8cc6-75d6903e6ed6"/>
+                    </REFOBJ>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="b362e632-3f67-4324-bfb5-591c5431e9c9"/>
+                <ATTRIBUTES>
+                  <ATT name="Guard"></ATT>
+                  <ATT name="Weight"><![CDATA[1]]></ATT>
+                  <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Target">
+                    <REFOBJ>
+                      <ID name="1 sec" mc="Standard.AcceptTimeEventAction" uid="dddea999-c8a8-4cb3-be6f-415f9d484fe6"/>
+                    </REFOBJ>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="Lancement procédure d'arrêt" mc="Standard.OpaqueAction" uid="d963e235-c0bf-4c9a-8cc6-75d6903e6ed6"/>
+          <ATTRIBUTES>
+            <ATT name="Body"><![CDATA[messageToMon(LOST_DMB)]]></ATT>
+            <ATT name="IsMultipleInstance">false</ATT>
+            <ATT name="IsCompensation">false</ATT>
+            <ATT name="Name"><![CDATA[Lancement procédure d'arrêt]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Outgoing">
+              <OBJECT>
+                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="81ecf85c-6688-4c70-a1d3-3ca1ec9619d9"/>
+                <ATTRIBUTES>
+                  <ATT name="Guard"></ATT>
+                  <ATT name="Weight"><![CDATA[1]]></ATT>
+                  <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Target">
+                    <REFOBJ>
+                      <ID name="1 sec" mc="Standard.AcceptTimeEventAction" uid="dddea999-c8a8-4cb3-be6f-415f9d484fe6"/>
+                    </REFOBJ>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="1 sec" mc="Standard.AcceptTimeEventAction" uid="dddea999-c8a8-4cb3-be6f-415f9d484fe6"/>
+          <ATTRIBUTES>
+            <ATT name="TimeExpresion"></ATT>
+            <ATT name="IsMultipleInstance">false</ATT>
+            <ATT name="IsCompensation">false</ATT>
+            <ATT name="Name"><![CDATA[1 sec]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Outgoing">
+              <OBJECT>
+                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="28217577-11e7-4e27-870b-fe0c3d51756e"/>
+                <ATTRIBUTES>
+                  <ATT name="Guard"></ATT>
+                  <ATT name="Weight"><![CDATA[1]]></ATT>
+                  <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Target">
+                    <REFOBJ>
+                      <ID name="Signaler robot démarré" mc="Standard.OpaqueAction" uid="adb57c48-b57e-452d-9c34-7e44dd6df6a1"/>
                     </REFOBJ>
                   </LINK>
                 </DEPENDENCIES>
