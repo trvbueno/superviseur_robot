@@ -35,21 +35,43 @@ extern RT_TASK th_sendToMon;
 extern RT_TASK th_receiveFromMon;
 extern RT_TASK th_openComRobot;
 extern RT_TASK th_startRobot;
+extern RT_TASK th_battery;
 extern RT_TASK th_move;
+extern RT_TASK th_battery;
+extern RT_TASK th_startCamera;
+extern RT_TASK th_pictures;
+extern RT_TASK th_cleaner;
 
 extern RT_MUTEX mutex_robotStarted;
 extern RT_MUTEX mutex_move;
+extern RT_MUTEX mutex_comFails;
+extern RT_MUTEX mutex_cameraStarted;
+extern RT_MUTEX mutex_camera;
+extern RT_MUTEX mutex_arene;
+extern RT_MUTEX mutex_locate;
 
 extern RT_SEM sem_barrier;
 extern RT_SEM sem_openComRobot;
 extern RT_SEM sem_serverOk;
 extern RT_SEM sem_startRobot;
+extern RT_SEM sem_startCamera;
+extern RT_SEM sem_probeArena;
+extern RT_SEM sem_serverKo;
+extern RT_SEM sem_reset;
 
 extern RT_QUEUE q_messageToMon;
 
 extern int etatCommMoniteur;
 extern int robotStarted;
 extern char move;
+extern int comFails;
+extern int cameraStarted;
+extern Camera cam;
+extern Jpg img;
+extern Arene arene;
+extern int confirmationArene;
+extern int areneConfirmee;
+extern int locate;
 
 extern int MSG_QUEUE_SIZE;
 
@@ -59,13 +81,21 @@ extern int PRIORITY_TMOVE;
 extern int PRIORITY_TSENDTOMON;
 extern int PRIORITY_TRECEIVEFROMMON;
 extern int PRIORITY_TSTARTROBOT;
+extern int PRIORITY_TBATTERY;
+extern int PRIORITY_TSTARTCAMERA;
+extern int PRIORITY_TPICTURES;
+extern int PRIORITY_TCLEANER;
 
 void f_server(void *arg);
 void f_sendToMon(void *arg);
 void f_receiveFromMon(void *arg);
 void f_openComRobot(void * arg);
 void f_move(void *arg);
+void f_battery(void *arg);
 void f_startRobot(void *arg);
+void f_startCamera(void *arg);
+void f_pictures(void *arg);
+void f_cleaner(void *arg);
 
 #endif /* FUNCTIONS_H */
 
