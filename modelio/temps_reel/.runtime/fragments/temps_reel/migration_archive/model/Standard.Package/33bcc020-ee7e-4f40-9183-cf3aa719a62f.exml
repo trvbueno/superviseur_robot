@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="temps_reel" version="4">
+  <OBJECT>
+    <ID name="temps_reel" mc="Standard.Package" uid="33bcc020-ee7e-4f40-9183-cf3aa719a62f"/>
+    <PID name="temps_reel" mc="Standard.Project" uid="2131f078-dc6c-4a6d-83bc-4315f51751a5"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[temps_reel]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedBehavior">
+        <COMPID name="Fonctionnalité 1 : Lancement de NodeJS et Mise en Attente de Connexion" mc="Standard.Activity" uid="893c3d6a-e1e6-4367-a9e3-922ea9c5bbe7"/>
+        <COMPID name="Fonctionnalité 2 : Etablissement du Socket" mc="Standard.Activity" uid="60d4bef7-2ae5-4985-8666-e331768294ed"/>
+        <COMPID name="Fonctionnalité 3 : Réception des Messages" mc="Standard.Activity" uid="10be9627-0893-4b42-9dba-923f9e54ccc6"/>
+        <COMPID name="Fonctionnalité 4 : Envoi des Messages" mc="Standard.Activity" uid="63c1bd17-e7c1-4374-9114-d8baf46fd852"/>
+        <COMPID name="Fonctionnalité 5 : Détection de la perte de communication" mc="Standard.Activity" uid="3ea7cd04-d6eb-4139-b1e4-cf4154de85e7"/>
+        <COMPID name="Fonctionnalité 6 : Reprise de la communication" mc="Standard.Activity" uid="2e277270-3a50-44d2-8acb-011d30cdb01c"/>
+        <COMPID name="Fonctionnalité 7 : Mettre en Place la Communication avec le Robot" mc="Standard.Activity" uid="14729af6-881d-4cb2-a5b1-0dbffa944817"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

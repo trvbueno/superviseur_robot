@@ -1,0 +1,76 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Fonctionnalité 13" version="4">
+  <OBJECT>
+    <ID name="Fonctionnalité 13" mc="Standard.ActivityDiagram" uid="36347383-f636-40c9-b40f-ece9e0be3731"/>
+    <PID name="Fonctionnalité 13 : Mise à jour du niveau de batterie" mc="Standard.Activity" uid="f54e6115-368a-42af-a660-1163a0520d52"/>
+    <ATTRIBUTES>
+      <ATT name="IsVertical">false</ATT>
+      <ATT name="UiDataVersion">378</ATT>
+      <ATT name="UiData"><![CDATA[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]]></ATT>
+      <ATT name="Name"><![CDATA[Fonctionnalité 13]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <LINK relation="Represented">
+        <REFOBJ>
+          <ID name="Initial Node" mc="Standard.InitialNode" uid="ea764ab8-ee69-46ca-809d-0c10bfe0197c"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="levelBat = send_message_to_robot(GET_VBAT)" mc="Standard.OpaqueAction" uid="2e01b4ae-85f3-4a67-927d-e33134910501"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="message(BAT,levelBat)" mc="Standard.OpaqueAction" uid="73d2bb89-25f9-4876-9881-9c38f69a3b5d"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="Mise a jour du niveau de batterie" mc="Standard.OpaqueAction" uid="6633f23a-55fa-4780-9082-2844fa689444"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="ControlFlow" mc="Standard.ControlFlow" uid="ee72ca1d-cb1e-46a1-8105-df7ca45cd705"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="ControlFlow" mc="Standard.ControlFlow" uid="bda4889b-2dba-4785-86ae-1c16da624196"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="Fork/Join1" mc="Standard.ForkJoinNode" uid="e53a8787-762c-4da8-ad2e-25c7aa34ee27"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="500 ms" mc="Standard.AcceptTimeEventAction" uid="1c11ecd6-cd4c-45fd-bdbd-e00dde20fabc"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="ControlFlow" mc="Standard.ControlFlow" uid="1522dbe4-1857-4685-9ee2-1fad3821ac93"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="ControlFlow" mc="Standard.ControlFlow" uid="30222430-dde5-4aa6-9c4e-08412f8c951a"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="Decision-Merge" mc="Standard.DecisionMergeNode" uid="107a4dfb-e01e-43b6-9575-ed3c0ef59d0c"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="ControlFlow" mc="Standard.ControlFlow" uid="2df747b9-fdce-4f0d-9e56-ec3f7e393f64"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="ControlFlow" mc="Standard.ControlFlow" uid="c8f6407d-355f-4d80-bbab-19ea05d312c7"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="ControlFlow" mc="Standard.ControlFlow" uid="ad446121-25ab-4d46-8d76-74dbdcef77d4"/>
+        </REFOBJ>
+      </LINK>
+      <COMP relation="Descriptor">
+        <OBJECT>
+          <ID name="" mc="Infrastructure.Note" uid="45291f73-4655-4016-bd54-d5b50f82564d"/>
+          <ATTRIBUTES>
+            <ATT name="Content"></ATT>
+            <ATT name="MimeType"><![CDATA[text/plain]]></ATT>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Model">
+              <FOREIGNID name="description" mc="Infrastructure.NoteType" uid="00000000-0000-3e81-0000-000000000000"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

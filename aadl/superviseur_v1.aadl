@@ -1,0 +1,274 @@
+package superviseur
+public
+
+-- Définition application superviseur
+system application
+end application;
+
+system implementation application.impl
+	subcomponents
+		p: process principal.impl;
+end application.impl;
+
+-- Processus principal de l'application superviseur
+----------------------------------------------------
+-- Historique
+----------------------------------------------------
+-- Fonctionnalité 5/6
+-- 	OK	- ajout d'un thread cleaner, qui a accès aux variables partagées à reset
+--	OK	- sendToMon et receiveToMon indiquent à cleaner une perte de connexion avec le serveur grace au canal serverKo
+--	??	- TODO: autres canaux à ajouter?
+-- Fonctionnalité 8
+-- 	OK	- ajout d'une variable partagée comFails
+-- 	OK	- comFails est partagée par startRobot et move
+-- Fonctionnalité 9
+-- 	OK	- startRobot signale à openComRobot le reset de la communication à l'aide du port resetCom
+-- Fonctionnalité 11
+--	OK	- le port évènement startRobot est maintenant un port données (type démarrage)
+--	XX	- startRobot est hybride: périodique 1s pour WD et évènementiel
+--	??	- watchdog
+-- Fonctionnalité 13
+-- 	OK	- ajout d'un thread batteryRobot périodique 500ms de récuperation de l'état de la batterie
+--	OK	- batteryRobot a accès aux ports robotStarted, comFails, messageToMon, ordre, response
+-- Fonctionnalité 14
+-- 	OK	- ajout d'un thread startCamera de démarrage de la camera
+-- 	OK	- nouveau port startCamera, placé sur receiveFromMon
+-- 	OK	- startCamera a accès aux ports messageToMon, startCamera
+-- Fonctionnalité 15
+-- 	OK	- ajout d'un thread pictures de traitement des images camera
+-- 	OK	- ajout d'une variable partagée cameraStarted
+-- 	OK	- pictures a accès aux ports messageToMon, picture, cameraStarted
+-- 	OK	- startCamera a accès au port cameraStarted
+-- Fonctionnalité 16
+-- 	OK	- ajout des canaux probeArena et validationArena entre receiveFromMon et pictures
+-- Fonctionnalité 17/18
+-- 	OK	- ajout variable partagée locate
+-- 	OK	- locate est partagée par pictures et receiveFromMon
+
+process principal
+	features
+		connectServer: in event port;
+		inputStream: in event data port;
+		outputStream: out event data port;
+		console: out event data port;
+		response: in event data port;
+		ordre: out event data port;
+		picture: in data port;
+		reset: out event port;
+end principal;
+
+process implementation principal.impl
+		subcomponents
+			th_server: thread th_server;
+			th_sendToMon: thread th_sendToMon;
+			th_startRobot: thread th_startRobot;
+			th_openComRobot: thread th_openComRobot;
+			th_receiveFromMon: thread th_receiveFromMon;
+			th_move: thread th_move;
+			th_batteryRobot: thread th_batteryRobot;
+			th_startCamera: thread th_startCamera;
+			th_pictures: thread th_pictures;
+			th_cleaner: thread th_cleaner;
+			robotStarted: data;
+			move: data;
+			comFails: data;
+			cameraStarted: data;
+			locate: data;
+		connections
+			CS1: port connectServer -> th_server.connectServer;
+			SR1: port th_receiveFromMon.startRobot -> th_startRobot.startRobot;
+			SM1: port th_receiveFromMon.startCamera -> th_startCamera.startCamera;
+			IS1: port inputStream -> th_receiveFromMon.inputStream;
+			OS1: port th_sendToMon.outputStream -> outputStream;
+			SO1: port  th_server.serverOk -> th_sendToMon.serverOk;
+			SO2: port th_server.serverOk -> th_receiveFromMon.serverOk;
+			OCR: port th_receiveFromMon.openComRobot -> th_openComRobot.openComRobot;
+			MTM1: port th_startRobot.messageToMon -> th_sendToMon.messageToMon;
+			MTM2: port th_openComRobot.messageToMon -> th_sendToMon.messageToMon;
+			MTM3: port th_batteryRobot.messageToMon -> th_sendToMon.messageToMon;
+			MTM4: port th_startCamera.messageToMon -> th_sendToMon.messageToMon;
+			MTM5: port th_pictures.messageToMon -> th_sendToMon.messageToMon;		
+			RES1: port response -> th_startRobot.response;
+			RES2: port response -> th_batteryRobot.response;
+			ORD1: port th_startRobot.ordre -> ordre;
+			ORD2: port th_move.ordre -> ordre;
+			ORD3: port th_batteryRobot.ordre -> ordre;
+			PIC: port picture -> th_pictures.picture;
+			RCM: port th_startRobot.resetCom -> th_openComRobot.resetCom;
+			PA: port th_receiveFromMon.probeArena -> th_pictures.probeArena;
+			VA: port th_receiveFromMon.validationArena -> th_pictures.validationArena;
+			CON: port th_cleaner.console -> console;
+			RST: port th_cleaner.reset -> reset;
+			SKO1: port th_receiveFromMon.serverKo -> th_cleaner.serverKo;
+			SKO2: port th_sendToMon.serverKo -> th_cleaner.serverKo;
+			DM1: data access th_receiveFromMon.move <-> move;
+			DM2: data access th_move.move <-> move;
+			CFP1: data access th_startRobot.comFails <-> comFails;
+			CFP2: data access th_move.comFails <-> comFails;
+			CFP3: data access th_batteryRobot.comFails <-> comFails;
+			CFP4: data access th_cleaner.comFails <-> comFails;
+			DRS1: data access th_move.robotStarted <-> robotStarted;
+			DRS2: data access th_startRobot.robotStarted <-> robotStarted;
+			DRS3: data access th_batteryRobot.robotStarted <-> robotStarted;
+			DRS4: data access th_cleaner.robotStarted <-> robotStarted;
+			DCS1: data access th_startCamera.cameraStarted <-> cameraStarted;
+			DCS2: data access th_pictures.cameraStarted <-> cameraStarted;
+			DCS3: data access th_cleaner.cameraStarted <-> cameraStarted;
+			LOC1: data access th_receiveFromMon.locate <-> locate;
+			LOC2: data access th_pictures.locate <-> locate;
+	end principal.impl;
+	
+-- Définition threads du processus principal
+-- Thread server
+thread th_server
+	features
+		connectServer: in event port;
+		serverOk: out event port;
+	properties
+		Dispatch_protocol => Aperiodic;
+end th_server;
+
+thread implementation th_server.impl
+end th_server.impl;
+
+-- Thread cleaner
+thread th_cleaner
+	features
+		reset: out event port;
+		console: out event data port;
+		serverKo: in event port;
+		cameraStarted: requires data access;
+		robotStarted: requires data access;
+		comFails: requires data access;
+	properties
+		Dispatch_protocol => Aperiodic;
+end th_cleaner;
+
+thread implementation th_cleaner.impl
+end th_cleaner.impl;
+
+-- Thread sendToMon
+thread th_sendToMon
+	features
+		serverOk: in event port;
+		outputStream: out event data port;
+		messageToMon: in event data port;
+		serverKo: out event port;
+	properties
+		Dispatch_protocol => Aperiodic;
+end th_sendToMon;
+
+thread implementation th_sendToMon.impl
+end th_sendToMon.impl;
+
+-- Thread openComRobot
+thread th_openComRobot
+	features
+			openComRobot: in event port;
+			messageToMon: out event data port;
+			resetCom: in event port;
+	properties
+		Dispatch_protocol => Aperiodic;
+end th_openComRobot;
+
+thread implementation th_openComRobot.impl
+end th_openComRobot.impl;
+
+-- Thread startCamera
+thread th_startCamera
+	features
+			startCamera: in event port;
+			messageToMon: out event data port;
+			cameraStarted: requires data access;
+	properties
+		Dispatch_protocol => Aperiodic;
+end th_startCamera;
+
+thread implementation th_startCamera.impl
+end th_startCamera.impl;
+
+-- Thread th_pictures
+thread th_pictures
+	features
+		messageToMon: out event data port;
+		picture: in data port;
+		probeArena: in event port;
+		validationArena: in event data port;
+		cameraStarted: requires data access;
+		locate: requires data access;
+	properties
+		Dispatch_protocol => Periodic;
+		Period => 100 ms;	
+end th_pictures;
+
+thread implementation th_pictures.impl
+end th_pictures.impl;
+
+-- Thread receiveFromMon
+thread th_receiveFromMon
+	features
+		serverOk: in event port;
+		openComRobot: out event port;
+		startRobot: out event data port;
+		startCamera: out event port;
+		inputStream: in event data port;
+		probeArena: out event port;
+		validationArena: out event data port;
+		serverKo: out event port;
+		move: requires data access;
+		locate: requires data access;
+	properties
+		Dispatch_protocol => Aperiodic;
+end th_receiveFromMon;
+
+thread implementation th_receiveFromMon.impl
+end th_receiveFromMon.impl;
+
+-- Thread th_startRobot
+thread th_startRobot
+	features
+		startRobot: in event data port;
+		messageToMon: out event data port;
+		response: in event data port;
+		ordre: out event data port;
+		robotStarted: requires data access;
+		comFails: requires data access;
+		resetCom: out event port;
+	properties
+		Dispatch_protocol => Aperiodic;
+end th_startRobot;
+
+thread implementation th_startRobot.impl
+end th_startRobot.impl;
+
+-- Thread th_move
+thread th_move
+	features
+		ordre: out event data port;
+		move: requires data access;
+		robotStarted: requires data access;
+		comFails: requires data access;
+	properties
+		Dispatch_protocol => Periodic;
+		Period => 100 ms;	
+end th_move;
+
+thread implementation th_move.impl
+end th_move.impl;
+
+-- Thread th_batteryRobot
+thread th_batteryRobot
+	features
+		messageToMon: out event data port;
+		ordre: out event data port;
+		response: in event data port;
+		robotStarted: requires data access;
+		comFails: requires data access;
+	properties
+		Dispatch_protocol => Periodic;
+		Period => 500 ms;
+end th_batteryRobot;
+
+thread implementation th_batteryRobot.impl
+end th_batteryRobot.impl;
+end superviseur;

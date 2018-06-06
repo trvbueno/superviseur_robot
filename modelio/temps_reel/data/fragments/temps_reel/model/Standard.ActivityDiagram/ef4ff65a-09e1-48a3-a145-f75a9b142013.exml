@@ -1,0 +1,58 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Fonctionnalité 12" version="4">
+  <OBJECT>
+    <ID name="Fonctionnalité 12" mc="Standard.ActivityDiagram" uid="ef4ff65a-09e1-48a3-a145-f75a9b142013"/>
+    <PID name="Fonctionnalité 12 : Déplacement manuel du robot" mc="Standard.Activity" uid="438232c0-071e-4e54-adca-106bdfb32b1e"/>
+    <ATTRIBUTES>
+      <ATT name="IsVertical">false</ATT>
+      <ATT name="UiDataVersion">259</ATT>
+      <ATT name="UiData"><![CDATA[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]]></ATT>
+      <ATT name="Name"><![CDATA[Fonctionnalité 12]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <LINK relation="Represented">
+        <REFOBJ>
+          <ID name="Initial Node" mc="Standard.InitialNode" uid="561bad7d-b3a0-492c-8a49-b829dac28f3a"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="move_robot(move)" mc="Standard.OpaqueAction" uid="adc503aa-cba9-4d9a-8d82-dc14aa7be5f8"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="message(DMB_ORDER,move)" mc="Standard.OpaqueAction" uid="ba69a7e9-a3a0-418a-bc1c-431dfe7a8f2e"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="send_message_to_robot(move)" mc="Standard.OpaqueAction" uid="18fb34db-86b6-4157-88c2-00f9900ea29c"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="ControlFlow" mc="Standard.ControlFlow" uid="2a1b0c5e-e5da-47a6-ba9a-3fcb1bc36e56"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="ControlFlow" mc="Standard.ControlFlow" uid="d275ed7f-bda3-4a74-a298-ac61491cae2a"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="ControlFlow" mc="Standard.ControlFlow" uid="65dd42c3-0f7d-4f23-b1cf-2619109a87ad"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="ControlFlow" mc="Standard.ControlFlow" uid="eb29f7c0-2f2e-4797-a50b-70edd5c6b4a3"/>
+        </REFOBJ>
+      </LINK>
+      <COMP relation="Descriptor">
+        <OBJECT>
+          <ID name="" mc="Infrastructure.Note" uid="c71dcaf2-240b-422d-a17f-0f3baf83f5f2"/>
+          <ATTRIBUTES>
+            <ATT name="Content"></ATT>
+            <ATT name="MimeType"><![CDATA[text/plain]]></ATT>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Model">
+              <FOREIGNID name="description" mc="Infrastructure.NoteType" uid="00000000-0000-3e81-0000-000000000000"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

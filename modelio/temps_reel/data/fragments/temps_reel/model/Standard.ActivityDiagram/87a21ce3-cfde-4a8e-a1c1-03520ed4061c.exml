@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Fonctionnalité 18 " version="4">
+  <OBJECT>
+    <ID name="Fonctionnalité 18 " mc="Standard.ActivityDiagram" uid="87a21ce3-cfde-4a8e-a1c1-03520ed4061c"/>
+    <PID name="Fonctionnalité 18 : Arrêt calcul de position" mc="Standard.Activity" uid="03bdb6b7-06f0-494a-a45e-74fd74653976"/>
+    <ATTRIBUTES>
+      <ATT name="IsVertical">false</ATT>
+      <ATT name="UiDataVersion">97</ATT>
+      <ATT name="UiData"><![CDATA[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]]></ATT>
+      <ATT name="Name"><![CDATA[Fonctionnalité 18 ]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <LINK relation="Represented">
+        <REFOBJ>
+          <ID name="Initial Node" mc="Standard.InitialNode" uid="6323afaa-ebc8-4537-9e06-7a0d0e176b3a"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="Demande utilisateur d'arrêt du calcul de position" mc="Standard.ConditionalNode" uid="6c907b58-57b2-4bc9-b774-8c81bdf5af92"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="Arrêt calcul de position" mc="Standard.OpaqueAction" uid="87a8cc59-467a-4327-b595-41ad4fb969e9"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="Activity Final Node" mc="Standard.ActivityFinalNode" uid="528905db-f91a-4d3f-9cb1-7c56fa0a906e"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="ControlFlow" mc="Standard.ControlFlow" uid="7bf3a578-af9d-49e2-b98a-176951d67aab"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="ControlFlow" mc="Standard.ControlFlow" uid="823839dd-9626-4a13-9523-ea7b697c5cf1"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="ControlFlow" mc="Standard.ControlFlow" uid="16cad92b-76fc-4ede-925d-6dd7bdbd0943"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="Retour sur fonctionnalité 15" mc="Standard.OpaqueAction" uid="6d0c6e71-4838-4c82-a3c8-f46ee4492f3e"/>
+        </REFOBJ>
+        <REFOBJ>
+          <ID name="ControlFlow" mc="Standard.ControlFlow" uid="c4331e18-b0c8-4896-ac3b-6dfadbc9abbb"/>
+        </REFOBJ>
+      </LINK>
+      <COMP relation="Descriptor">
+        <OBJECT>
+          <ID name="" mc="Infrastructure.Note" uid="addb9204-cc2f-4ad3-a994-d314c8458ac9"/>
+          <ATTRIBUTES>
+            <ATT name="Content"></ATT>
+            <ATT name="MimeType"><![CDATA[text/plain]]></ATT>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Model">
+              <FOREIGNID name="description" mc="Infrastructure.NoteType" uid="00000000-0000-3e81-0000-000000000000"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
