@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Image" version="4">
+  <OBJECT>
+    <ID name="Image" mc="Standard.Package" uid="3dcf3797-7de1-418f-9b57-e21efb026aac"/>
+    <PID name="Liste des Threads" mc="Standard.Package" uid="ae84d912-ff97-49f9-9273-0f690c1a42b0"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Image]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedBehavior">
+        <COMPID name="th_startCamera" mc="Standard.Activity" uid="6d2ed229-b6ad-4edd-b06e-81fcb8402607"/>
+        <COMPID name="th_pictures" mc="Standard.Activity" uid="2b64056c-b963-4326-96b8-00a4aef43c0e"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

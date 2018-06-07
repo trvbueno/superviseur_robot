@@ -2,7 +2,7 @@
 <!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="th_openComRobot" version="4">
   <OBJECT>
     <ID name="th_openComRobot" mc="Standard.Activity" uid="9edf0c8f-4199-45cf-babd-5f89e4aff75e"/>
-    <PID name="Liste des Threads" mc="Standard.Package" uid="ae84d912-ff97-49f9-9273-0f690c1a42b0"/>
+    <PID name="Robot" mc="Standard.Package" uid="b64b4b12-0663-491d-a95a-d9e207b5693a"/>
     <ATTRIBUTES>
       <ATT name="IsSingleExecution">false</ATT>
       <ATT name="IsReadOnly">false</ATT>
@@ -117,7 +117,7 @@
         <OBJECT>
           <ID name="Envoi message echec au moniteur" mc="Standard.OpaqueAction" uid="03943b64-67ca-405b-a4a4-5549afd14b5c"/>
           <ATTRIBUTES>
-            <ATT name="Body"><![CDATA[messageToMon("KO")]]></ATT>
+            <ATT name="Body"><![CDATA[messageToMon("NOACK")]]></ATT>
             <ATT name="IsMultipleInstance">false</ATT>
             <ATT name="IsCompensation">false</ATT>
             <ATT name="Name"><![CDATA[Envoi message echec au moniteur]]></ATT>
@@ -147,7 +147,7 @@
         <OBJECT>
           <ID name="Envoi message réussite au moniteur" mc="Standard.OpaqueAction" uid="3f4ae386-0d25-4b57-b4dc-25237f009851"/>
           <ATTRIBUTES>
-            <ATT name="Body"><![CDATA[messageToMon("OK")
+            <ATT name="Body"><![CDATA[messageToMon("ACK")
 ]]></ATT>
             <ATT name="IsMultipleInstance">false</ATT>
             <ATT name="IsCompensation">false</ATT>
@@ -157,7 +157,7 @@
           <DEPENDENCIES>
             <COMP relation="Outgoing">
               <OBJECT>
-                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="df474c01-f45a-4793-b904-7c5c4b3b328a"/>
+                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="0ca5335a-d28b-4e32-bfbf-dae0bd24ba1d"/>
                 <ATTRIBUTES>
                   <ATT name="Guard"></ATT>
                   <ATT name="Weight"><![CDATA[1]]></ATT>
@@ -167,7 +167,7 @@
                 <DEPENDENCIES>
                   <LINK relation="Target">
                     <REFOBJ>
-                      <ID name="Attente réinitialisation" mc="Standard.OpaqueAction" uid="627d3163-03f8-4d52-8677-79cb07246d9f"/>
+                      <ID name="Activity Final Node" mc="Standard.ActivityFinalNode" uid="2b68b1fb-6d35-40c7-b5ad-74ea74b382d7"/>
                     </REFOBJ>
                   </LINK>
                 </DEPENDENCIES>
@@ -182,36 +182,6 @@
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES></DEPENDENCIES>
-        </OBJECT>
-        <OBJECT>
-          <ID name="Attente réinitialisation" mc="Standard.OpaqueAction" uid="627d3163-03f8-4d52-8677-79cb07246d9f"/>
-          <ATTRIBUTES>
-            <ATT name="Body"><![CDATA[P(resetCom)]]></ATT>
-            <ATT name="IsMultipleInstance">false</ATT>
-            <ATT name="IsCompensation">false</ATT>
-            <ATT name="Name"><![CDATA[Attente réinitialisation]]></ATT>
-            <ATT name="status">1970354901745664</ATT>
-          </ATTRIBUTES>
-          <DEPENDENCIES>
-            <COMP relation="Outgoing">
-              <OBJECT>
-                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="a4ad8cc9-b4cd-4d2f-84d5-e74a8bc651ed"/>
-                <ATTRIBUTES>
-                  <ATT name="Guard"></ATT>
-                  <ATT name="Weight"><![CDATA[1]]></ATT>
-                  <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
-                  <ATT name="status">1970354901745664</ATT>
-                </ATTRIBUTES>
-                <DEPENDENCIES>
-                  <LINK relation="Target">
-                    <REFOBJ>
-                      <ID name="Début communication" mc="Standard.OpaqueAction" uid="8703fe7e-b19b-44fb-8a80-98b717578a13"/>
-                    </REFOBJ>
-                  </LINK>
-                </DEPENDENCIES>
-              </OBJECT>
-            </COMP>
-          </DEPENDENCIES>
         </OBJECT>
       </COMP>
       <COMP relation="OwnedCollaboration">

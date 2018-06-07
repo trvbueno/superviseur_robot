@@ -2,7 +2,7 @@
 <!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="th_startCamera" version="4">
   <OBJECT>
     <ID name="th_startCamera" mc="Standard.Activity" uid="6d2ed229-b6ad-4edd-b06e-81fcb8402607"/>
-    <PID name="Liste des Threads" mc="Standard.Package" uid="ae84d912-ff97-49f9-9273-0f690c1a42b0"/>
+    <PID name="Image" mc="Standard.Package" uid="3dcf3797-7de1-418f-9b57-e21efb026aac"/>
     <ATTRIBUTES>
       <ATT name="IsSingleExecution">false</ATT>
       <ATT name="IsReadOnly">false</ATT>
@@ -42,7 +42,10 @@
         <OBJECT>
           <ID name="Allumage de la caméra" mc="Standard.OpaqueAction" uid="a25c055d-ecf9-4c77-89f8-798596b69481"/>
           <ATTRIBUTES>
-            <ATT name="Body"><![CDATA[open_camera]]></ATT>
+            <ATT name="Body"><![CDATA[rt_mutex_acquire(&mutex_camera, TM_INFINITE)
+open_camera(&cam)
+rt_mutex_release(&mutex_camera)
+]]></ATT>
             <ATT name="IsMultipleInstance">false</ATT>
             <ATT name="IsCompensation">false</ATT>
             <ATT name="Name"><![CDATA[Allumage de la caméra]]></ATT>
@@ -117,7 +120,7 @@
         <OBJECT>
           <ID name="Envoi message echec au moniteur" mc="Standard.OpaqueAction" uid="c3494fc6-ca58-4ee2-8777-b9d1123db596"/>
           <ATTRIBUTES>
-            <ATT name="Body"><![CDATA[messageToMon("KO")]]></ATT>
+            <ATT name="Body"><![CDATA[messageToMon("NOACK")]]></ATT>
             <ATT name="IsMultipleInstance">false</ATT>
             <ATT name="IsCompensation">false</ATT>
             <ATT name="Name"><![CDATA[Envoi message echec au moniteur]]></ATT>
@@ -158,7 +161,45 @@ rt_mutex_release(&mutex_image)]]></ATT>
           <DEPENDENCIES>
             <COMP relation="Outgoing">
               <OBJECT>
-                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="5eac805e-0cbd-42e6-a62d-ebebaf4813f1"/>
+                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="012ec473-5731-4282-8456-ca3529d90a56"/>
+                <ATTRIBUTES>
+                  <ATT name="Guard"></ATT>
+                  <ATT name="Weight"><![CDATA[1]]></ATT>
+                  <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Target">
+                    <REFOBJ>
+                      <ID name="Envoi message succès au moniteur" mc="Standard.OpaqueAction" uid="0640556e-0768-463b-b068-c9984683ac96"/>
+                    </REFOBJ>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="Activity Final Node" mc="Standard.ActivityFinalNode" uid="ccf7ac6e-3516-4ccf-bbf0-5920190b7854"/>
+          <ATTRIBUTES>
+            <ATT name="Name"><![CDATA[Activity Final Node]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="Envoi message succès au moniteur" mc="Standard.OpaqueAction" uid="0640556e-0768-463b-b068-c9984683ac96"/>
+          <ATTRIBUTES>
+            <ATT name="Body"><![CDATA[messageToMon("ACK")]]></ATT>
+            <ATT name="IsMultipleInstance">false</ATT>
+            <ATT name="IsCompensation">false</ATT>
+            <ATT name="Name"><![CDATA[Envoi message succès au moniteur]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Outgoing">
+              <OBJECT>
+                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="0b4dab66-fc9a-4f69-beda-7625b83d0ebc"/>
                 <ATTRIBUTES>
                   <ATT name="Guard"></ATT>
                   <ATT name="Weight"><![CDATA[1]]></ATT>
@@ -175,14 +216,6 @@ rt_mutex_release(&mutex_image)]]></ATT>
               </OBJECT>
             </COMP>
           </DEPENDENCIES>
-        </OBJECT>
-        <OBJECT>
-          <ID name="Activity Final Node" mc="Standard.ActivityFinalNode" uid="ccf7ac6e-3516-4ccf-bbf0-5920190b7854"/>
-          <ATTRIBUTES>
-            <ATT name="Name"><![CDATA[Activity Final Node]]></ATT>
-            <ATT name="status">1970354901745664</ATT>
-          </ATTRIBUTES>
-          <DEPENDENCIES></DEPENDENCIES>
         </OBJECT>
       </COMP>
       <COMP relation="OwnedCollaboration">

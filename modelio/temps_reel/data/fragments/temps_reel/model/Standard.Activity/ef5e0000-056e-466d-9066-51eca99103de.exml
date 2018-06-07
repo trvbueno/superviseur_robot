@@ -2,7 +2,7 @@
 <!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="th_move" version="4">
   <OBJECT>
     <ID name="th_move" mc="Standard.Activity" uid="ef5e0000-056e-466d-9066-51eca99103de"/>
-    <PID name="Liste des Threads" mc="Standard.Package" uid="ae84d912-ff97-49f9-9273-0f690c1a42b0"/>
+    <PID name="Robot" mc="Standard.Package" uid="b64b4b12-0663-491d-a95a-d9e207b5693a"/>
     <ATTRIBUTES>
       <ATT name="IsSingleExecution">false</ATT>
       <ATT name="IsReadOnly">false</ATT>
@@ -114,7 +114,7 @@ rt_mutex_release(&mutex_move)]]></ATT>
               <OBJECT>
                 <ID name="ControlFlow" mc="Standard.ControlFlow" uid="f276dec0-50a6-443c-8504-eaf9844910d3"/>
                 <ATTRIBUTES>
-                  <ATT name="Guard"><![CDATA[err = -1]]></ATT>
+                  <ATT name="Guard"><![CDATA[err =ROBOT_ERROR]]></ATT>
                   <ATT name="Weight"><![CDATA[1]]></ATT>
                   <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
                   <ATT name="status">1970354901745664</ATT>
@@ -130,7 +130,7 @@ rt_mutex_release(&mutex_move)]]></ATT>
               <OBJECT>
                 <ID name="ControlFlow" mc="Standard.ControlFlow" uid="e6e694de-fc79-436c-893e-b085c5ab3caf"/>
                 <ATTRIBUTES>
-                  <ATT name="Guard"><![CDATA[err = 0]]></ATT>
+                  <ATT name="Guard"></ATT>
                   <ATT name="Weight"><![CDATA[1]]></ATT>
                   <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
                   <ATT name="status">1970354901745664</ATT>
@@ -149,9 +149,9 @@ rt_mutex_release(&mutex_move)]]></ATT>
         <OBJECT>
           <ID name="Incrémentation du compteur d'erreurs" mc="Standard.OpaqueAction" uid="5bf4295b-8c01-4071-aa25-41df5b2c52aa"/>
           <ATTRIBUTES>
-            <ATT name="Body"><![CDATA[mutex_comFails.acquire()
+            <ATT name="Body"><![CDATA[rt_mutex_acquire(&mutex_comFails,TM_INFINITE)
 comFails++
-mutex_comFails.unlock()]]></ATT>
+rt_mutex_release(&mutex_comFails)]]></ATT>
             <ATT name="IsMultipleInstance">false</ATT>
             <ATT name="IsCompensation">false</ATT>
             <ATT name="Name"><![CDATA[Incrémentation du compteur d'erreurs]]></ATT>

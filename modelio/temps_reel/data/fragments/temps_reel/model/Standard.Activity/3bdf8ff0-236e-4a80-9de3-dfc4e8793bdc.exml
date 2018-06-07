@@ -2,7 +2,7 @@
 <!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="th_sendToMom" version="4">
   <OBJECT>
     <ID name="th_sendToMom" mc="Standard.Activity" uid="3bdf8ff0-236e-4a80-9de3-dfc4e8793bdc"/>
-    <PID name="Liste des Threads" mc="Standard.Package" uid="ae84d912-ff97-49f9-9273-0f690c1a42b0"/>
+    <PID name="monitor" mc="Standard.Package" uid="f6c768ee-b6a3-4299-ab6c-60ebf8e4356a"/>
     <ATTRIBUTES>
       <ATT name="IsSingleExecution">false</ATT>
       <ATT name="IsReadOnly">false</ATT>
@@ -52,7 +52,7 @@
           <DEPENDENCIES>
             <COMP relation="Outgoing">
               <OBJECT>
-                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="a1cbc453-fe5e-4c45-a84f-5e96b084a9df"/>
+                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="b1dcf5aa-b9d0-407f-9026-6aa64fa10e1e"/>
                 <ATTRIBUTES>
                   <ATT name="Guard"></ATT>
                   <ATT name="Weight"><![CDATA[1]]></ATT>
@@ -62,7 +62,7 @@
                 <DEPENDENCIES>
                   <LINK relation="Target">
                     <REFOBJ>
-                      <ID name="Decision-Merge1" mc="Standard.DecisionMergeNode" uid="855df532-43e3-4316-ade8-34cf756d9bc0"/>
+                      <ID name="Envoi du message au moniteur" mc="Standard.OpaqueAction" uid="845a7f34-f028-4bea-8fdb-94db92176e1a"/>
                     </REFOBJ>
                   </LINK>
                 </DEPENDENCIES>
@@ -83,35 +83,6 @@
           <DEPENDENCIES>
             <COMP relation="Outgoing">
               <OBJECT>
-                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="4b8c051c-e174-4b23-beb9-ede571c31f47"/>
-                <ATTRIBUTES>
-                  <ATT name="Guard"></ATT>
-                  <ATT name="Weight"><![CDATA[1]]></ATT>
-                  <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
-                  <ATT name="status">1970354901745664</ATT>
-                </ATTRIBUTES>
-                <DEPENDENCIES>
-                  <LINK relation="Target">
-                    <REFOBJ>
-                      <ID name="Decision-Merge" mc="Standard.DecisionMergeNode" uid="0eb176c0-5069-4b36-b4a6-b4d6b2d8103e"/>
-                    </REFOBJ>
-                  </LINK>
-                </DEPENDENCIES>
-              </OBJECT>
-            </COMP>
-          </DEPENDENCIES>
-        </OBJECT>
-        <OBJECT>
-          <ID name="Decision-Merge" mc="Standard.DecisionMergeNode" uid="0eb176c0-5069-4b36-b4a6-b4d6b2d8103e"/>
-          <ATTRIBUTES>
-            <ATT name="DecisionKind">ExclusiveDecision</ATT>
-            <ATT name="DecisionInputBehavior"></ATT>
-            <ATT name="Name"><![CDATA[Decision-Merge]]></ATT>
-            <ATT name="status">1970354901745664</ATT>
-          </ATTRIBUTES>
-          <DEPENDENCIES>
-            <COMP relation="Outgoing">
-              <OBJECT>
                 <ID name="ControlFlow" mc="Standard.ControlFlow" uid="219e6368-7a70-47e0-ba20-d08f48b457a0"/>
                 <ATTRIBUTES>
                   <ATT name="Guard"><![CDATA[Délais < 10ms]]></ATT>
@@ -123,135 +94,6 @@
                   <LINK relation="Target">
                     <REFOBJ>
                       <ID name="Attente d'un message" mc="Standard.OpaqueAction" uid="c08ab661-262e-4a98-b10b-24ae6e85b469"/>
-                    </REFOBJ>
-                  </LINK>
-                </DEPENDENCIES>
-              </OBJECT>
-              <OBJECT>
-                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="ac32958a-9ead-423d-bec8-728af68459b4"/>
-                <ATTRIBUTES>
-                  <ATT name="Guard"><![CDATA[Délais >= 10ms]]></ATT>
-                  <ATT name="Weight"><![CDATA[1]]></ATT>
-                  <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
-                  <ATT name="status">1970354901745664</ATT>
-                </ATTRIBUTES>
-                <DEPENDENCIES>
-                  <LINK relation="Target">
-                    <REFOBJ>
-                      <ID name="Le serveur est mort" mc="Standard.OpaqueAction" uid="dc65139b-93a3-481d-a298-b589e02eb7f9"/>
-                    </REFOBJ>
-                  </LINK>
-                </DEPENDENCIES>
-              </OBJECT>
-            </COMP>
-          </DEPENDENCIES>
-        </OBJECT>
-        <OBJECT>
-          <ID name="Le serveur est mort" mc="Standard.OpaqueAction" uid="dc65139b-93a3-481d-a298-b589e02eb7f9"/>
-          <ATTRIBUTES>
-            <ATT name="Body"><![CDATA[V(serverKo)]]></ATT>
-            <ATT name="IsMultipleInstance">false</ATT>
-            <ATT name="IsCompensation">false</ATT>
-            <ATT name="Name"><![CDATA[Le serveur est mort]]></ATT>
-            <ATT name="status">1970354901745664</ATT>
-          </ATTRIBUTES>
-          <DEPENDENCIES>
-            <COMP relation="Outgoing">
-              <OBJECT>
-                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="00cd95a8-659e-4724-8b11-eb4148781ed5"/>
-                <ATTRIBUTES>
-                  <ATT name="Guard"></ATT>
-                  <ATT name="Weight"><![CDATA[1]]></ATT>
-                  <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
-                  <ATT name="status">1970354901745664</ATT>
-                </ATTRIBUTES>
-                <DEPENDENCIES>
-                  <LINK relation="Target">
-                    <REFOBJ>
-                      <ID name="Activity Final Node" mc="Standard.ActivityFinalNode" uid="da16e26b-d1b2-4af9-8572-0de0f8d91ad0"/>
-                    </REFOBJ>
-                  </LINK>
-                </DEPENDENCIES>
-              </OBJECT>
-            </COMP>
-          </DEPENDENCIES>
-        </OBJECT>
-        <OBJECT>
-          <ID name="Activity Final Node" mc="Standard.ActivityFinalNode" uid="da16e26b-d1b2-4af9-8572-0de0f8d91ad0"/>
-          <ATTRIBUTES>
-            <ATT name="Name"><![CDATA[Activity Final Node]]></ATT>
-            <ATT name="status">1970354901745664</ATT>
-          </ATTRIBUTES>
-          <DEPENDENCIES></DEPENDENCIES>
-        </OBJECT>
-        <OBJECT>
-          <ID name="Decision-Merge1" mc="Standard.DecisionMergeNode" uid="855df532-43e3-4316-ade8-34cf756d9bc0"/>
-          <ATTRIBUTES>
-            <ATT name="DecisionKind">ExclusiveDecision</ATT>
-            <ATT name="DecisionInputBehavior"></ATT>
-            <ATT name="Name"><![CDATA[Decision-Merge1]]></ATT>
-            <ATT name="status">1970354901745664</ATT>
-          </ATTRIBUTES>
-          <DEPENDENCIES>
-            <COMP relation="Outgoing">
-              <OBJECT>
-                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="6426e2cd-fd10-49e5-a77f-abb43f71952d"/>
-                <ATTRIBUTES>
-                  <ATT name="Guard"></ATT>
-                  <ATT name="Weight"><![CDATA[1]]></ATT>
-                  <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
-                  <ATT name="status">1970354901745664</ATT>
-                </ATTRIBUTES>
-                <DEPENDENCIES>
-                  <LINK relation="Target">
-                    <REFOBJ>
-                      <ID name="Envoi du message au moniteur" mc="Standard.OpaqueAction" uid="845a7f34-f028-4bea-8fdb-94db92176e1a"/>
-                    </REFOBJ>
-                  </LINK>
-                </DEPENDENCIES>
-              </OBJECT>
-              <OBJECT>
-                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="fc70cf44-6f87-4350-80ee-a6073fffb777"/>
-                <ATTRIBUTES>
-                  <ATT name="Guard"><![CDATA[message == LOST_DMB]]></ATT>
-                  <ATT name="Weight"><![CDATA[1]]></ATT>
-                  <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
-                  <ATT name="status">1970354901745664</ATT>
-                </ATTRIBUTES>
-                <DEPENDENCIES>
-                  <LINK relation="Target">
-                    <REFOBJ>
-                      <ID name="Démarrage procédure d'arrêt" mc="Standard.OpaqueAction" uid="d9d5e99b-4581-4dc7-a352-eeb9ff4a64ba"/>
-                    </REFOBJ>
-                  </LINK>
-                </DEPENDENCIES>
-              </OBJECT>
-            </COMP>
-          </DEPENDENCIES>
-        </OBJECT>
-        <OBJECT>
-          <ID name="Démarrage procédure d'arrêt" mc="Standard.OpaqueAction" uid="d9d5e99b-4581-4dc7-a352-eeb9ff4a64ba"/>
-          <ATTRIBUTES>
-            <ATT name="Body"><![CDATA[V(serverKo)]]></ATT>
-            <ATT name="IsMultipleInstance">false</ATT>
-            <ATT name="IsCompensation">false</ATT>
-            <ATT name="Name"><![CDATA[Démarrage procédure d'arrêt]]></ATT>
-            <ATT name="status">1970354901745664</ATT>
-          </ATTRIBUTES>
-          <DEPENDENCIES>
-            <COMP relation="Outgoing">
-              <OBJECT>
-                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="697e9166-dd00-469c-95f2-5d0e09583282"/>
-                <ATTRIBUTES>
-                  <ATT name="Guard"></ATT>
-                  <ATT name="Weight"><![CDATA[1]]></ATT>
-                  <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
-                  <ATT name="status">1970354901745664</ATT>
-                </ATTRIBUTES>
-                <DEPENDENCIES>
-                  <LINK relation="Target">
-                    <REFOBJ>
-                      <ID name="Envoi du message au moniteur" mc="Standard.OpaqueAction" uid="845a7f34-f028-4bea-8fdb-94db92176e1a"/>
                     </REFOBJ>
                   </LINK>
                 </DEPENDENCIES>

@@ -2,7 +2,7 @@
 <!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="th_receiveFromMom" version="4">
   <OBJECT>
     <ID name="th_receiveFromMom" mc="Standard.Activity" uid="64f53e77-d644-4344-a3d3-fdbc3ee47d81"/>
-    <PID name="Liste des Threads" mc="Standard.Package" uid="ae84d912-ff97-49f9-9273-0f690c1a42b0"/>
+    <PID name="monitor" mc="Standard.Package" uid="f6c768ee-b6a3-4299-ab6c-60ebf8e4356a"/>
     <ATTRIBUTES>
       <ATT name="IsSingleExecution">false</ATT>
       <ATT name="IsReadOnly">false</ATT>

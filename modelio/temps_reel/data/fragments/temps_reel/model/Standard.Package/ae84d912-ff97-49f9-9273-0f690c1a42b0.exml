@@ -13,17 +13,10 @@
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>
-      <COMP relation="OwnedBehavior">
-        <COMPID name="th_server" mc="Standard.Activity" uid="1c2eb681-15d2-45ed-a878-a394151c1c1c"/>
-        <COMPID name="th_receiveFromMom" mc="Standard.Activity" uid="64f53e77-d644-4344-a3d3-fdbc3ee47d81"/>
-        <COMPID name="th_sendFromMom" mc="Standard.Activity" uid="3bdf8ff0-236e-4a80-9de3-dfc4e8793bdc"/>
-        <COMPID name="th_openComRobot" mc="Standard.Activity" uid="9edf0c8f-4199-45cf-babd-5f89e4aff75e"/>
-        <COMPID name="th_startCamera" mc="Standard.Activity" uid="6d2ed229-b6ad-4edd-b06e-81fcb8402607"/>
-        <COMPID name="th_pictures" mc="Standard.Activity" uid="2b64056c-b963-4326-96b8-00a4aef43c0e"/>
-        <COMPID name="th_batteryRobot" mc="Standard.Activity" uid="64556bdb-ae7c-4a77-9d3b-78f67a55e263"/>
-        <COMPID name="th_startRobot" mc="Standard.Activity" uid="de4042b4-9425-4785-8f6a-32e08b3a98fb"/>
-        <COMPID name="th_move" mc="Standard.Activity" uid="ef5e0000-056e-466d-9066-51eca99103de"/>
-        <COMPID name="th_cleaner" mc="Standard.Activity" uid="b6ccc8e2-13c7-4b96-8666-3ed75a0d6a37"/>
+      <COMP relation="OwnedElement">
+        <COMPID name="Robot" mc="Standard.Package" uid="b64b4b12-0663-491d-a95a-d9e207b5693a"/>
+        <COMPID name="monitor" mc="Standard.Package" uid="f6c768ee-b6a3-4299-ab6c-60ebf8e4356a"/>
+        <COMPID name="Image" mc="Standard.Package" uid="3dcf3797-7de1-418f-9b57-e21efb026aac"/>
       </COMP>
     </DEPENDENCIES>
   </OBJECT>

@@ -2,7 +2,7 @@
 <!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="th_batteryRobot" version="4">
   <OBJECT>
     <ID name="th_batteryRobot" mc="Standard.Activity" uid="64556bdb-ae7c-4a77-9d3b-78f67a55e263"/>
-    <PID name="Liste des Threads" mc="Standard.Package" uid="ae84d912-ff97-49f9-9273-0f690c1a42b0"/>
+    <PID name="Robot" mc="Standard.Package" uid="b64b4b12-0663-491d-a95a-d9e207b5693a"/>
     <ATTRIBUTES>
       <ATT name="IsSingleExecution">false</ATT>
       <ATT name="IsReadOnly">false</ATT>
@@ -219,7 +219,7 @@ mutex_comFails.unlock()]]></ATT>
               <OBJECT>
                 <ID name="ControlFlow" mc="Standard.ControlFlow" uid="01bae864-4b03-4d80-ac9e-e991e601ceee"/>
                 <ATTRIBUTES>
-                  <ATT name="Guard"><![CDATA[NO ACK]]></ATT>
+                  <ATT name="Guard"><![CDATA[ROBOT_ERROR]]></ATT>
                   <ATT name="Weight"><![CDATA[1]]></ATT>
                   <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
                   <ATT name="status">1970354901745664</ATT>

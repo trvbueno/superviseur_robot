@@ -2,7 +2,7 @@
 <!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="th_pictures" version="4">
   <OBJECT>
     <ID name="th_pictures" mc="Standard.Activity" uid="2b64056c-b963-4326-96b8-00a4aef43c0e"/>
-    <PID name="Liste des Threads" mc="Standard.Package" uid="ae84d912-ff97-49f9-9273-0f690c1a42b0"/>
+    <PID name="Image" mc="Standard.Package" uid="3dcf3797-7de1-418f-9b57-e21efb026aac"/>
     <ATTRIBUTES>
       <ATT name="IsSingleExecution">false</ATT>
       <ATT name="IsReadOnly">false</ATT>

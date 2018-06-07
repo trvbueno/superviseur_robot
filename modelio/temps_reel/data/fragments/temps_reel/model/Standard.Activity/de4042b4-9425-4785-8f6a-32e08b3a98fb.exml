@@ -2,7 +2,7 @@
 <!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="th_startRobot" version="4">
   <OBJECT>
     <ID name="th_startRobot" mc="Standard.Activity" uid="de4042b4-9425-4785-8f6a-32e08b3a98fb"/>
-    <PID name="Liste des Threads" mc="Standard.Package" uid="ae84d912-ff97-49f9-9273-0f690c1a42b0"/>
+    <PID name="Robot" mc="Standard.Package" uid="b64b4b12-0663-491d-a95a-d9e207b5693a"/>
     <ATTRIBUTES>
       <ATT name="IsSingleExecution">false</ATT>
       <ATT name="IsReadOnly">false</ATT>
@@ -53,7 +53,7 @@ rt_mutex_release(&mutex_robotStarted)]]></ATT>
           <DEPENDENCIES>
             <COMP relation="Outgoing">
               <OBJECT>
-                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="536bdf63-3104-4154-81eb-991190383950"/>
+                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="a9c8e09d-10c0-4e49-9803-338be4a28e57"/>
                 <ATTRIBUTES>
                   <ATT name="Guard"></ATT>
                   <ATT name="Weight"><![CDATA[1]]></ATT>
@@ -63,7 +63,7 @@ rt_mutex_release(&mutex_robotStarted)]]></ATT>
                 <DEPENDENCIES>
                   <LINK relation="Target">
                     <REFOBJ>
-                      <ID name="Vérification du nombre d'erreurs" mc="Standard.OpaqueAction" uid="d26a54bc-7b22-4ba4-a187-2ffae6bbede8"/>
+                      <ID name="Initialisation de la variable comFails" mc="Standard.OpaqueAction" uid="1767757a-6704-446c-a63f-a32347d77988"/>
                     </REFOBJ>
                   </LINK>
                 </DEPENDENCIES>
@@ -74,7 +74,7 @@ rt_mutex_release(&mutex_robotStarted)]]></ATT>
         <OBJECT>
           <ID name="Attente message" mc="Standard.OpaqueAction" uid="0a6dc7a8-a80c-462a-ab2c-c4002fd324c3"/>
           <ATTRIBUTES>
-            <ATT name="Body"><![CDATA[listen(startRobot)
+            <ATT name="Body"><![CDATA[p(startRobot)
 ]]></ATT>
             <ATT name="IsMultipleInstance">false</ATT>
             <ATT name="IsCompensation">false</ATT>
@@ -351,7 +351,7 @@ rt_mutex_release(&mutex_robotStarted)]]></ATT>
                 <DEPENDENCIES>
                   <LINK relation="Target">
                     <REFOBJ>
-                      <ID name="Reset de la variable comFails" mc="Standard.OpaqueAction" uid="8a88a116-e034-4fe1-b4d7-0f8949921a00"/>
+                      <ID name="Initialisation de la variable comFails" mc="Standard.OpaqueAction" uid="8a88a116-e034-4fe1-b4d7-0f8949921a00"/>
                     </REFOBJ>
                   </LINK>
                 </DEPENDENCIES>
@@ -428,14 +428,14 @@ rt_mutex_release(&mutex_robotStarted)]]></ATT>
           </DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="Reset de la variable comFails" mc="Standard.OpaqueAction" uid="8a88a116-e034-4fe1-b4d7-0f8949921a00"/>
+          <ID name="Initialisation de la variable comFails" mc="Standard.OpaqueAction" uid="8a88a116-e034-4fe1-b4d7-0f8949921a00"/>
           <ATTRIBUTES>
             <ATT name="Body"><![CDATA[rt_mutex_acquire(&mutex_move,TM_INFINITE)
 comFails = 0
 rt_mutex_release(&mutex_comFails)]]></ATT>
             <ATT name="IsMultipleInstance">false</ATT>
             <ATT name="IsCompensation">false</ATT>
-            <ATT name="Name"><![CDATA[Reset de la variable comFails]]></ATT>
+            <ATT name="Name"><![CDATA[Initialisation de la variable comFails]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES>
@@ -518,7 +518,7 @@ rt_mutex_release(&mutex_comFails)]]></ATT>
                 </DEPENDENCIES>
               </OBJECT>
               <OBJECT>
-                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="b942c1c7-722f-465e-a86b-9dbfb3a60194"/>
+                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="c3ec71db-8edc-4f15-9c19-c5c7aace2e27"/>
                 <ATTRIBUTES>
                   <ATT name="Guard"></ATT>
                   <ATT name="Weight"><![CDATA[1]]></ATT>
@@ -539,7 +539,11 @@ rt_mutex_release(&mutex_comFails)]]></ATT>
         <OBJECT>
           <ID name="Lancement procédure d'arrêt" mc="Standard.OpaqueAction" uid="1be1f164-2c8a-4717-aaaf-fc4cf9221f3b"/>
           <ATTRIBUTES>
-            <ATT name="Body"><![CDATA[messageToMon(LOST_DMB)]]></ATT>
+            <ATT name="Body"><![CDATA[ rt_mutex_acquire(&mutex_robotStarted, TM_INFINITE);
+robotStarted = 0;
+rt_mutex_release(&mutex_robotStarted);
+close_communication_robot()
+messageToMon(LOST_DMB)]]></ATT>
             <ATT name="IsMultipleInstance">false</ATT>
             <ATT name="IsCompensation">false</ATT>
             <ATT name="Name"><![CDATA[Lancement procédure d'arrêt]]></ATT>
@@ -646,7 +650,11 @@ rt_mutex_release(&mutex_comFails)]]></ATT>
         <OBJECT>
           <ID name="Lancement procédure d'arrêt" mc="Standard.OpaqueAction" uid="d963e235-c0bf-4c9a-8cc6-75d6903e6ed6"/>
           <ATTRIBUTES>
-            <ATT name="Body"><![CDATA[messageToMon(LOST_DMB)]]></ATT>
+            <ATT name="Body"><![CDATA[ rt_mutex_acquire(&mutex_robotStarted, TM_INFINITE);
+robotStarted = 0;
+rt_mutex_release(&mutex_robotStarted);
+close_communication_robot()
+messageToMon(LOST_DMB)]]></ATT>
             <ATT name="IsMultipleInstance">false</ATT>
             <ATT name="IsCompensation">false</ATT>
             <ATT name="Name"><![CDATA[Lancement procédure d'arrêt]]></ATT>
@@ -655,7 +663,7 @@ rt_mutex_release(&mutex_comFails)]]></ATT>
           <DEPENDENCIES>
             <COMP relation="Outgoing">
               <OBJECT>
-                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="81ecf85c-6688-4c70-a1d3-3ca1ec9619d9"/>
+                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="158d98c8-9acc-46a0-b897-3dbb689ce295"/>
                 <ATTRIBUTES>
                   <ATT name="Guard"></ATT>
                   <ATT name="Weight"><![CDATA[1]]></ATT>
@@ -685,7 +693,7 @@ rt_mutex_release(&mutex_comFails)]]></ATT>
           <DEPENDENCIES>
             <COMP relation="Outgoing">
               <OBJECT>
-                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="28217577-11e7-4e27-870b-fe0c3d51756e"/>
+                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="a5dd72ad-faef-4b8c-886d-c4222442f6b3"/>
                 <ATTRIBUTES>
                   <ATT name="Guard"></ATT>
                   <ATT name="Weight"><![CDATA[1]]></ATT>
@@ -695,7 +703,39 @@ rt_mutex_release(&mutex_comFails)]]></ATT>
                 <DEPENDENCIES>
                   <LINK relation="Target">
                     <REFOBJ>
-                      <ID name="Signaler robot démarré" mc="Standard.OpaqueAction" uid="adb57c48-b57e-452d-9c34-7e44dd6df6a1"/>
+                      <ID name="Vérification du nombre d'erreurs" mc="Standard.OpaqueAction" uid="d26a54bc-7b22-4ba4-a187-2ffae6bbede8"/>
+                    </REFOBJ>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="Initialisation de la variable comFails" mc="Standard.OpaqueAction" uid="1767757a-6704-446c-a63f-a32347d77988"/>
+          <ATTRIBUTES>
+            <ATT name="Body"><![CDATA[rt_mutex_acquire(&mutex_move,TM_INFINITE)
+comFails = 0
+rt_mutex_release(&mutex_comFails)]]></ATT>
+            <ATT name="IsMultipleInstance">false</ATT>
+            <ATT name="IsCompensation">false</ATT>
+            <ATT name="Name"><![CDATA[Initialisation de la variable comFails]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Outgoing">
+              <OBJECT>
+                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="6f10d476-89e6-43c3-89e3-90f70809f24e"/>
+                <ATTRIBUTES>
+                  <ATT name="Guard"></ATT>
+                  <ATT name="Weight"><![CDATA[1]]></ATT>
+                  <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Target">
+                    <REFOBJ>
+                      <ID name="Vérification du nombre d'erreurs" mc="Standard.OpaqueAction" uid="d26a54bc-7b22-4ba4-a187-2ffae6bbede8"/>
                     </REFOBJ>
                   </LINK>
                 </DEPENDENCIES>

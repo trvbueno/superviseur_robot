@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="monitor" version="4">
+  <OBJECT>
+    <ID name="monitor" mc="Standard.Package" uid="f6c768ee-b6a3-4299-ab6c-60ebf8e4356a"/>
+    <PID name="Liste des Threads" mc="Standard.Package" uid="ae84d912-ff97-49f9-9273-0f690c1a42b0"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[monitor]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedBehavior">
+        <COMPID name="th_server" mc="Standard.Activity" uid="1c2eb681-15d2-45ed-a878-a394151c1c1c"/>
+        <COMPID name="th_receiveFromMom" mc="Standard.Activity" uid="64f53e77-d644-4344-a3d3-fdbc3ee47d81"/>
+        <COMPID name="th_sendToMom" mc="Standard.Activity" uid="3bdf8ff0-236e-4a80-9de3-dfc4e8793bdc"/>
+        <COMPID name="th_cleaner" mc="Standard.Activity" uid="b6ccc8e2-13c7-4b96-8666-3ed75a0d6a37"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
