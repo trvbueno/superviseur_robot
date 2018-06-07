@@ -54,7 +54,7 @@
               <OBJECT>
                 <ID name="ControlFlow" mc="Standard.ControlFlow" uid="ade620cf-c05b-4f2c-82a2-2be42bd67780"/>
                 <ATTRIBUTES>
-                  <ATT name="Guard"></ATT>
+                  <ATT name="Guard"><![CDATA[P(connectServer]]></ATT>
                   <ATT name="Weight"><![CDATA[1]]></ATT>
                   <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
                   <ATT name="status">1970354901745664</ATT>
@@ -122,7 +122,7 @@
                 <DEPENDENCIES>
                   <LINK relation="Target">
                     <REFOBJ>
-                      <ID name="Message d'erreur sur console" mc="Standard.OpaqueAction" uid="420aa23e-5f49-43aa-a7a8-f4fa3035d35c"/>
+                      <ID name="Message d'erreur sur moniteur" mc="Standard.OpaqueAction" uid="420aa23e-5f49-43aa-a7a8-f4fa3035d35c"/>
                     </REFOBJ>
                   </LINK>
                 </DEPENDENCIES>
@@ -147,12 +147,12 @@
           </DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="Message d'erreur sur console" mc="Standard.OpaqueAction" uid="420aa23e-5f49-43aa-a7a8-f4fa3035d35c"/>
+          <ID name="Message d'erreur sur moniteur" mc="Standard.OpaqueAction" uid="420aa23e-5f49-43aa-a7a8-f4fa3035d35c"/>
           <ATTRIBUTES>
             <ATT name="Body"><![CDATA[messageToMon("KO")]]></ATT>
             <ATT name="IsMultipleInstance">false</ATT>
             <ATT name="IsCompensation">false</ATT>
-            <ATT name="Name"><![CDATA[Message d'erreur sur console]]></ATT>
+            <ATT name="Name"><![CDATA[Message d'erreur sur moniteur]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES>

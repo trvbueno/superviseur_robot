@@ -218,7 +218,7 @@
               <OBJECT>
                 <ID name="ControlFlow" mc="Standard.ControlFlow" uid="c0c1d5f6-4882-4e1d-b9c9-151815d3a305"/>
                 <ATTRIBUTES>
-                  <ATT name="Guard"><![CDATA[ProbeArena == 0]]></ATT>
+                  <ATT name="Guard"><![CDATA[Timeout 1 ms]]></ATT>
                   <ATT name="Weight"><![CDATA[1]]></ATT>
                   <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
                   <ATT name="status">1970354901745664</ATT>
@@ -283,7 +283,7 @@
         <OBJECT>
           <ID name="Détection de l'image" mc="Standard.OpaqueAction" uid="8a0020a4-1566-4a38-a362-7911a5801e55"/>
           <ATTRIBUTES>
-            <ATT name="Body"><![CDATA[arena = detect_arena(image)]]></ATT>
+            <ATT name="Body"><![CDATA[nouvellearena = detect_arena(image)]]></ATT>
             <ATT name="IsMultipleInstance">false</ATT>
             <ATT name="IsCompensation">false</ATT>
             <ATT name="Name"><![CDATA[Détection de l'image]]></ATT>
@@ -311,12 +311,12 @@
           </DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="Envoi de message NO AC" mc="Standard.OpaqueAction" uid="45ecd650-11db-40ec-9779-bc6b7cdb2254"/>
+          <ID name="Envoi de message NO ACK" mc="Standard.OpaqueAction" uid="45ecd650-11db-40ec-9779-bc6b7cdb2254"/>
           <ATTRIBUTES>
             <ATT name="Body"><![CDATA[messageToMon(NO_ACK)]]></ATT>
             <ATT name="IsMultipleInstance">false</ATT>
             <ATT name="IsCompensation">false</ATT>
-            <ATT name="Name"><![CDATA[Envoi de message NO AC]]></ATT>
+            <ATT name="Name"><![CDATA[Envoi de message NO ACK]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES>
@@ -361,7 +361,7 @@
                 <DEPENDENCIES>
                   <LINK relation="Target">
                     <REFOBJ>
-                      <ID name="Envoi de message NO AC" mc="Standard.OpaqueAction" uid="45ecd650-11db-40ec-9779-bc6b7cdb2254"/>
+                      <ID name="Envoi de message NO ACK" mc="Standard.OpaqueAction" uid="45ecd650-11db-40ec-9779-bc6b7cdb2254"/>
                     </REFOBJ>
                   </LINK>
                 </DEPENDENCIES>
@@ -478,7 +478,7 @@
         <OBJECT>
           <ID name="Attente message" mc="Standard.OpaqueAction" uid="c30919ab-cd08-4a25-aeb5-b76fa45ab2da"/>
           <ATTRIBUTES>
-            <ATT name="Body"></ATT>
+            <ATT name="Body"><![CDATA[P(ProbeArena)]]></ATT>
             <ATT name="IsMultipleInstance">false</ATT>
             <ATT name="IsCompensation">false</ATT>
             <ATT name="Name"><![CDATA[Attente message]]></ATT>
@@ -487,7 +487,7 @@
           <DEPENDENCIES>
             <COMP relation="Outgoing">
               <OBJECT>
-                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="ef1fe13e-bcc1-409a-bb1b-76059fb39893"/>
+                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="3c01404d-fa1c-4976-a22a-56d793859117"/>
                 <ATTRIBUTES>
                   <ATT name="Guard"></ATT>
                   <ATT name="Weight"><![CDATA[1]]></ATT>
@@ -497,7 +497,7 @@
                 <DEPENDENCIES>
                   <LINK relation="Target">
                     <REFOBJ>
-                      <ID name="Decision-Merge3" mc="Standard.DecisionMergeNode" uid="69afd786-fa44-4bc6-9d5e-f265a065ecb9"/>
+                      <ID name="Decision-Merge4" mc="Standard.DecisionMergeNode" uid="aee29b3b-c4f7-448a-aa65-ff82a9469b57"/>
                     </REFOBJ>
                   </LINK>
                 </DEPENDENCIES>
@@ -508,7 +508,7 @@
         <OBJECT>
           <ID name="Supression de l'arene" mc="Standard.OpaqueAction" uid="ee333e49-2d4c-457a-9dd8-2936dcf86892"/>
           <ATTRIBUTES>
-            <ATT name="Body"><![CDATA[delete_arena()]]></ATT>
+            <ATT name="Body"><![CDATA[nouvellearena = null]]></ATT>
             <ATT name="IsMultipleInstance">false</ATT>
             <ATT name="IsCompensation">false</ATT>
             <ATT name="Name"><![CDATA[Supression de l'arene]]></ATT>
@@ -546,41 +546,9 @@
           <DEPENDENCIES>
             <COMP relation="Outgoing">
               <OBJECT>
-                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="ad9c4d95-41b6-4192-aed5-d90ca95589c0"/>
+                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="43e7510c-f211-4abe-9a62-5e1d9b5e5dd1"/>
                 <ATTRIBUTES>
-                  <ATT name="Guard"><![CDATA[message(CAM,CAM_ARENA_CONFIRM)]]></ATT>
-                  <ATT name="Weight"><![CDATA[1]]></ATT>
-                  <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
-                  <ATT name="status">1970354901745664</ATT>
-                </ATTRIBUTES>
-                <DEPENDENCIES>
-                  <LINK relation="Target">
-                    <REFOBJ>
-                      <ID name="Sauvegarde de l'arene" mc="Standard.OpaqueAction" uid="f4374575-6ecd-40e4-a775-4f681544802d"/>
-                    </REFOBJ>
-                  </LINK>
-                  <COMP relation="Descriptor">
-                    <OBJECT>
-                      <ID name="" mc="Infrastructure.Note" uid="8d11c7bd-568c-456c-9bf2-93836df13de4"/>
-                      <ATTRIBUTES>
-                        <ATT name="Content"><![CDATA[<Enter note text here>]]></ATT>
-                        <ATT name="MimeType"><![CDATA[text/plain]]></ATT>
-                        <ATT name="Name"></ATT>
-                        <ATT name="status">1970354901745664</ATT>
-                      </ATTRIBUTES>
-                      <DEPENDENCIES>
-                        <LINK relation="Model">
-                          <FOREIGNID name="description" mc="Infrastructure.NoteType" uid="00000000-0000-3e81-0000-000000000000"/>
-                        </LINK>
-                      </DEPENDENCIES>
-                    </OBJECT>
-                  </COMP>
-                </DEPENDENCIES>
-              </OBJECT>
-              <OBJECT>
-                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="f8910436-57af-43da-80fd-9fd34221b189"/>
-                <ATTRIBUTES>
-                  <ATT name="Guard"><![CDATA[message(CAM,CAM_ARENA_INFIRM)]]></ATT>
+                  <ATT name="Guard"><![CDATA[arenaconfirmee==-1]]></ATT>
                   <ATT name="Weight"><![CDATA[1]]></ATT>
                   <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
                   <ATT name="status">1970354901745664</ATT>
@@ -593,13 +561,29 @@
                   </LINK>
                 </DEPENDENCIES>
               </OBJECT>
+              <OBJECT>
+                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="2d238821-f499-4827-ab69-459bc446d55e"/>
+                <ATTRIBUTES>
+                  <ATT name="Guard"><![CDATA[arenaconfirme == 1]]></ATT>
+                  <ATT name="Weight"><![CDATA[1]]></ATT>
+                  <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Target">
+                    <REFOBJ>
+                      <ID name="Sauvegarde de l'arene" mc="Standard.OpaqueAction" uid="f4374575-6ecd-40e4-a775-4f681544802d"/>
+                    </REFOBJ>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
             </COMP>
           </DEPENDENCIES>
         </OBJECT>
         <OBJECT>
           <ID name="Sauvegarde de l'arene" mc="Standard.OpaqueAction" uid="f4374575-6ecd-40e4-a775-4f681544802d"/>
           <ATTRIBUTES>
-            <ATT name="Body"><![CDATA[save_arena()]]></ATT>
+            <ATT name="Body"><![CDATA[arena = nouvellearena]]></ATT>
             <ATT name="IsMultipleInstance">false</ATT>
             <ATT name="IsCompensation">false</ATT>
             <ATT name="Name"><![CDATA[Sauvegarde de l'arene]]></ATT>
@@ -619,6 +603,83 @@
                   <LINK relation="Target">
                     <REFOBJ>
                       <ID name="100ms" mc="Standard.AcceptTimeEventAction" uid="0046a9d9-0709-4507-91ea-a056eb621534"/>
+                    </REFOBJ>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="Verification message confirmation" mc="Standard.OpaqueAction" uid="b40c48ba-7690-4bc4-9fef-1458333fbd48"/>
+          <ATTRIBUTES>
+            <ATT name="Body"><![CDATA[rt_mutex_acquire(&mutex_arena_confirm,TM_INFINITE)
+arenaConfirme = >arenaConfirm
+rt_mutex_release(&mutex_arena_confirm)]]></ATT>
+            <ATT name="IsMultipleInstance">false</ATT>
+            <ATT name="IsCompensation">false</ATT>
+            <ATT name="Name"><![CDATA[Verification message confirmation]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Outgoing">
+              <OBJECT>
+                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="23082d92-1527-4b74-bb5e-30e20260aa6b"/>
+                <ATTRIBUTES>
+                  <ATT name="Guard"></ATT>
+                  <ATT name="Weight"><![CDATA[1]]></ATT>
+                  <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Target">
+                    <REFOBJ>
+                      <ID name="Decision-Merge3" mc="Standard.DecisionMergeNode" uid="69afd786-fa44-4bc6-9d5e-f265a065ecb9"/>
+                    </REFOBJ>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="Decision-Merge4" mc="Standard.DecisionMergeNode" uid="aee29b3b-c4f7-448a-aa65-ff82a9469b57"/>
+          <ATTRIBUTES>
+            <ATT name="DecisionKind">ExclusiveDecision</ATT>
+            <ATT name="DecisionInputBehavior"></ATT>
+            <ATT name="Name"><![CDATA[Decision-Merge4]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Outgoing">
+              <OBJECT>
+                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="6f104b09-5775-43ac-accf-6f348d99b270"/>
+                <ATTRIBUTES>
+                  <ATT name="Guard"></ATT>
+                  <ATT name="Weight"><![CDATA[1]]></ATT>
+                  <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Target">
+                    <REFOBJ>
+                      <ID name="Verification message confirmation" mc="Standard.OpaqueAction" uid="b40c48ba-7690-4bc4-9fef-1458333fbd48"/>
+                    </REFOBJ>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="ControlFlow" mc="Standard.ControlFlow" uid="5eb3a472-643f-4429-b643-20f2cf85f052"/>
+                <ATTRIBUTES>
+                  <ATT name="Guard"><![CDATA[Timeout]]></ATT>
+                  <ATT name="Weight"><![CDATA[1]]></ATT>
+                  <ATT name="Name"><![CDATA[ControlFlow]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Target">
+                    <REFOBJ>
+                      <ID name="Attente message" mc="Standard.OpaqueAction" uid="c30919ab-cd08-4a25-aeb5-b76fa45ab2da"/>
                     </REFOBJ>
                   </LINK>
                 </DEPENDENCIES>
